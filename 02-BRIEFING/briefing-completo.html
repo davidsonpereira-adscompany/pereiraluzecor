@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing Completo &mdash; Pereira Luz e Cor | ADS Company</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --laranja: #FF5C00;
+    --laranja-hover: #FF7A33;
+    --laranja-soft: rgba(255,92,0,0.08);
+    --laranja-border: rgba(255,92,0,0.15);
+    --preto: #060606;
+    --cinza-escuro: #111;
+    --cinza-card: #141414;
+    --cinza-card-hover: #1A1A1A;
+    --cinza-medio: #2A2A2A;
+    --cinza-claro: #888;
+    --cinza-border: rgba(255,255,255,0.06);
+    --branco: #F5F5F5;
+    --verde: #22C55E;
+    --verde-soft: rgba(34,197,94,0.1);
+    --verde-border: rgba(34,197,94,0.2);
+    --azul: #3B8BFF;
+    --azul-soft: rgba(59,139,255,0.1);
+    --azul-border: rgba(59,139,255,0.2);
+    --amarelo: #FFCB05;
+    --amarelo-soft: rgba(255,203,5,0.1);
+    --amarelo-border: rgba(255,203,5,0.2);
+    --vermelho: #EF4444;
+    --vermelho-soft: rgba(239,68,68,0.1);
+    --vermelho-border: rgba(239,68,68,0.2);
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+  }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--preto);
+    color: var(--branco);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  /* ===== TOP BAR ===== */
+  .top-bar {
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--cinza-border);
+    padding: 14px 32px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .top-bar-left { display: flex; align-items: center; gap: 14px; }
+  .top-bar img { height: 36px; opacity: 0.9; }
+  .top-bar-name {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.8);
+  }
+  .top-bar-name em { font-style: italic; color: var(--laranja); }
+  .top-bar-right { display: flex; align-items: center; gap: 14px; }
+  .top-bar-badge {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--laranja);
+    background: var(--laranja-soft);
+    border: 1px solid var(--laranja-border);
+    padding: 5px 14px;
+    border-radius: 20px;
+  }
+  .btn-voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--branco);
+    background: rgba(255,92,0,0.12);
+    border: 1px solid rgba(255,92,0,0.25);
+    padding: 6px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .btn-voltar:hover {
+    background: var(--laranja);
+    color: #fff;
+    border-color: var(--laranja);
+  }
+  .btn-voltar svg { width: 12px; height: 12px; stroke: currentColor; stroke-width: 2; fill: none; }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 100px 32px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, #0A0705 0%, var(--preto) 100%);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(255,92,0,0.06) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--laranja);
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    color: var(--branco);
+  }
+  .hero h1 em { font-style: italic; color: var(--laranja); }
+  .hero-line { width: 60px; height: 2px; background: var(--laranja); margin: 24px auto; }
+  .hero p {
+    font-size: 1rem;
+    color: var(--cinza-claro);
+    font-weight: 300;
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .info-strip {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding: 0 32px;
+    margin-top: 48px;
+  }
+  .info-item { text-align: center; }
+  .info-label {
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--cinza-claro);
+    margin-bottom: 4px;
+  }
+  .info-value { font-size: 0.95rem; font-weight: 500; color: var(--branco); }
+
+  /* ===== CONTAINER ===== */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+
+  /* ===== SECTION ===== */
+  .section { padding: 72px 0 48px; }
+  .section-header { text-align: center; margin-bottom: 48px; }
+  .section-tag {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--laranja);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    font-weight: 400;
+    color: var(--branco);
+    line-height: 1.3;
+  }
+  .section-title em { font-style: italic; color: var(--laranja); }
+  .section-subtitle {
+    font-size: 0.9rem;
+    color: var(--cinza-claro);
+    font-weight: 300;
+    max-width: 600px;
+    margin: 16px auto 0;
+    line-height: 1.6;
+  }
+
+  /* ===== SUBSECTION ===== */
+  .subsection { margin-bottom: 48px; }
+  .subsection-title {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--branco);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--cinza-border);
+  }
+  .subsection-title em { font-style: italic; color: var(--laranja); }
+
+  /* ===== DATA CARDS ===== */
+  .data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .data-card {
+    background: var(--cinza-card);
+    border: 1px solid var(--cinza-border);
+    padding: 24px 20px;
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .data-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--laranja);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+  .data-card:hover {
+    border-color: rgba(255,92,0,0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  }
+  .data-card:hover::before { opacity: 1; }
+  .data-card-value {
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    font-weight: 700;
+    color: var(--laranja);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .data-card-label {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--cinza-claro);
+    line-height: 1.5;
+  }
+  .data-card-source {
+    font-size: 0.6rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.25);
+    margin-top: 8px;
+    letter-spacing: 0.05em;
+  }
+
+  .data-card-wide {
+    grid-column: 1 / -1;
+  }
+
+  /* ===== HIGHLIGHT BOX ===== */
+  .highlight-box {
+    background: rgba(255,92,0,0.04);
+    border: 1px solid rgba(255,92,0,0.12);
+    border-left: 3px solid var(--laranja);
+    padding: 24px 28px;
+    margin: 24px 0;
+  }
+  .highlight-box p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.7;
+  }
+  .highlight-box strong { color: var(--laranja); font-weight: 600; }
+
+  /* ===== CLIENT QUOTE BOX ===== */
+  .client-box {
+    background: rgba(255,92,0,0.04);
+    border: 1px solid rgba(255,92,0,0.12);
+    border-left: 3px solid var(--laranja);
+    padding: 24px 28px;
+    margin: 24px 0;
+  }
+  .client-box-tag {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--laranja);
+    margin-bottom: 12px;
+  }
+  .client-box p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+  .client-box p:last-child { margin-bottom: 0; }
+  .client-box strong { color: var(--branco); font-weight: 600; }
+
+  /* ===== STRATEGIC SUGGESTION BOX ===== */
+  .suggestion-box {
+    background: var(--azul-soft);
+    border: 1px solid var(--azul-border);
+    border-left: 3px solid var(--azul);
+    padding: 24px 28px;
+    margin: 24px 0;
+  }
+  .suggestion-box-tag {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--azul);
+    margin-bottom: 12px;
+  }
+  .suggestion-box p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+  .suggestion-box p:last-child { margin-bottom: 0; }
+  .suggestion-box strong { color: var(--azul); font-weight: 600; }
+
+  /* ===== STRATEGIC VISION BOX ===== */
+  .vision-box {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--cinza-border);
+    border-left: 3px solid var(--cinza-claro);
+    padding: 24px 28px;
+    margin: 24px 0;
+  }
+  .vision-box-tag {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cinza-claro);
+    margin-bottom: 12px;
+  }
+  .vision-box p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+  .vision-box p:last-child { margin-bottom: 0; }
+  .vision-box strong { color: var(--branco); font-weight: 600; }
+
+  /* ===== CONTENT LIST ===== */
+  .content-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+  }
+  .content-list li {
+    padding: 10px 0 10px 24px;
+    position: relative;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.6;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+  }
+  .content-list li:last-child { border-bottom: none; }
+  .content-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 18px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--laranja);
+  }
+  .content-list li strong { color: var(--branco); font-weight: 600; }
+
+  /* ===== NUMBERED LIST ===== */
+  .numbered-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    counter-reset: item;
+  }
+  .numbered-list li {
+    padding: 14px 0 14px 48px;
+    position: relative;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.6;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    counter-increment: item;
+  }
+  .numbered-list li:last-child { border-bottom: none; }
+  .numbered-list li::before {
+    content: counter(item, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 14px;
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--laranja);
+    width: 36px;
+  }
+  .numbered-list li strong { color: var(--branco); font-weight: 600; }
+
+  /* ===== TABLE ===== */
+  .table-wrapper {
+    overflow-x: auto;
+    margin: 24px 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+    min-width: 500px;
+  }
+  .styled-table thead th {
+    background: var(--laranja-soft);
+    color: var(--laranja);
+    font-weight: 600;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,92,0,0.15);
+    white-space: nowrap;
+  }
+  .styled-table tbody td {
+    background: var(--cinza-card);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--cinza-border);
+    color: rgba(255,255,255,0.85);
+    vertical-align: top;
+  }
+  .styled-table tbody tr:hover td {
+    background: var(--cinza-card-hover);
+  }
+  .styled-table .highlight-cell { color: var(--laranja); font-weight: 600; }
+  .styled-table .text-center { text-align: center; }
+
+  /* Badges */
+  .badge {
+    display: inline-block;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 10px;
+  }
+  .badge-alto { background: var(--vermelho-soft); color: var(--vermelho); border: 1px solid var(--vermelho-border); }
+  .badge-medio { background: var(--amarelo-soft); color: var(--amarelo); border: 1px solid var(--amarelo-border); }
+  .badge-baixo { background: var(--verde-soft); color: var(--verde); border: 1px solid var(--verde-border); }
+
+  /* ===== COMPETITOR CARD ===== */
+  .competitor-card {
+    background: var(--cinza-card);
+    border: 1px solid var(--cinza-border);
+    padding: 28px 24px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.35s ease;
+  }
+  .competitor-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 0;
+    background: var(--laranja);
+    transition: height 0.35s ease;
+  }
+  .competitor-card:hover {
+    border-color: rgba(255,92,0,0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  }
+  .competitor-card:hover::before { height: 100%; }
+  .competitor-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .competitor-name {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--branco);
+  }
+  .competitor-name em { font-style: italic; color: var(--laranja); }
+  .competitor-rank {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--laranja);
+    opacity: 0.3;
+    margin-right: 12px;
+  }
+  .competitor-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 16px;
+  }
+  .competitor-meta-item {
+    font-size: 0.75rem;
+    color: var(--cinza-claro);
+  }
+  .competitor-meta-item strong {
+    color: rgba(255,255,255,0.7);
+    font-weight: 500;
+  }
+  .competitor-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .competitor-detail-box {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--cinza-border);
+    padding: 14px 16px;
+  }
+  .competitor-detail-box h4 {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--laranja);
+    margin-bottom: 8px;
+  }
+  .competitor-detail-box p {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+  }
+
+  /* ===== PROGRESS BAR ===== */
+  .progress-row {
+    margin-bottom: 20px;
+  }
+  .progress-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .progress-label-left,
+  .progress-label-right {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--cinza-claro);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .progress-track {
+    width: 100%;
+    height: 6px;
+    background: var(--cinza-medio);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--laranja);
+    border-radius: 3px;
+    transition: width 0.5s ease;
+  }
+  .progress-value {
+    font-size: 0.6rem;
+    font-weight: 600;
+    color: var(--laranja);
+    margin-top: 4px;
+    text-align: right;
+  }
+
+  /* ===== CONCLUSION BOX ===== */
+  .conclusion-box {
+    background: linear-gradient(135deg, rgba(255,92,0,0.06) 0%, rgba(255,92,0,0.02) 100%);
+    border: 1px solid rgba(255,92,0,0.15);
+    padding: 40px 36px;
+    margin: 32px 0;
+  }
+  .conclusion-box h3 {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--branco);
+    margin-bottom: 16px;
+  }
+  .conclusion-box h3 em { font-style: italic; color: var(--laranja); }
+  .conclusion-box p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.8;
+    margin-bottom: 12px;
+  }
+  .conclusion-box p:last-child { margin-bottom: 0; }
+
+  /* ===== NAV SECTIONS ===== */
+  .section-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    padding: 32px 16px 0;
+  }
+  .section-nav a {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cinza-claro);
+    text-decoration: none;
+    padding: 6px 14px;
+    border: 1px solid var(--cinza-border);
+    border-radius: 20px;
+    transition: all 0.3s;
+  }
+  .section-nav a:hover {
+    color: var(--laranja);
+    border-color: var(--laranja-border);
+    background: var(--laranja-soft);
+  }
+
+  /* ===== DIVIDER ===== */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,92,0,0.15), transparent);
+    margin: 0;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    text-align: center;
+    padding: 48px 32px 32px;
+    border-top: 1px solid var(--cinza-border);
+    margin-top: 48px;
+  }
+  .footer-brand {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 8px;
+  }
+  .footer-brand em { font-style: italic; color: var(--laranja); }
+  .footer-sub {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.3);
+    font-weight: 300;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .competitor-details { grid-template-columns: 1fr; }
+    .data-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .top-bar { padding: 12px 16px; }
+    .top-bar-name { display: none; }
+    .top-bar-badge { display: none; }
+    .hero { padding: 64px 20px 48px; }
+    .info-strip { gap: 24px; }
+    .container { padding: 0 16px; }
+    .section { padding: 48px 0 32px; }
+    .data-grid { grid-template-columns: 1fr; }
+    .client-box { padding: 20px; }
+    .suggestion-box { padding: 20px; }
+    .vision-box { padding: 20px; }
+    .highlight-box { padding: 20px; }
+    .conclusion-box { padding: 24px 20px; }
+  }
+  @media (max-width: 480px) {
+    .section-nav a { font-size: 0.6rem; padding: 5px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-bar-left">
+    <img src="../ads-logo.png" alt="ADS Company">
+    <span class="top-bar-name">ADS <em>Company</em></span>
+  </div>
+  <div class="top-bar-right">
+    <span class="top-bar-badge">Briefing Completo</span>
+    <a href="../index.html" class="btn-voltar">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Voltar para a Central
+    </a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Pereira Luz e Cor &mdash; Documento Estrat&eacute;gico</div>
+  <h1>Briefing <em>Completo</em></h1>
+  <div class="hero-line"></div>
+  <p>Documento estrat&eacute;gico que re&uacute;ne as respostas do cliente, dados de pesquisa de mercado e vis&atilde;o aprofundada para guiar todas as fases do projeto &mdash; da identidade visual &agrave;s campanhas de tr&aacute;fego pago.</p>
+
+  <div class="info-strip">
+    <div class="info-item">
+      <div class="info-label">Cliente</div>
+      <div class="info-value">Pereira Luz e Cor</div>
+    </div>
+    <div class="info-item">
+      <div class="info-label">Regi&atilde;o</div>
+      <div class="info-value">Barreiras, Bahia</div>
+    </div>
+    <div class="info-item">
+      <div class="info-label">Respons&aacute;vel</div>
+      <div class="info-value">Davidson Pereira</div>
+    </div>
+    <div class="info-item">
+      <div class="info-label">Data</div>
+      <div class="info-value">Julho 2026</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION NAV -->
+<div class="section-nav">
+  <a href="#visao-geral">Vis&atilde;o Geral</a>
+  <a href="#publico-alvo">P&uacute;blico-Alvo</a>
+  <a href="#oferta">Oferta</a>
+  <a href="#objecoes">Obje&ccedil;&otilde;es</a>
+  <a href="#concorrentes">Concorrentes</a>
+  <a href="#angulos">&#194;ngulos</a>
+  <a href="#promessas">Promessas</a>
+  <a href="#provas">Provas</a>
+  <a href="#mecanismo">Mecanismo</a>
+  <a href="#consciencia">Consci&ecirc;ncia</a>
+  <a href="#tom">Tom</a>
+  <a href="#restricoes">Restri&ccedil;&otilde;es</a>
+</div>
+
+<div class="divider" style="margin-top:32px;"></div>
+
+<!-- ============================================================
+     SECAO 01: VISAO GERAL
+     ============================================================ -->
+<div class="container" id="visao-geral">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-tag">Se&ccedil;&atilde;o 01</div>
+      <div class="section-title">Vis&atilde;o <em>Geral</em></div>
+      <p class="section-subtitle">O projeto, o que entrega e onde se posiciona no mercado.</p>
+    </div>
+
+    <div class="client-box">
+      <div class="client-box-tag">O que o cliente disse</div>
+      <p><strong>Nome do projeto:</strong> Pereira Luz &amp; Cor</p>
+      <p><strong>O que &eacute;:</strong> Loja de materiais el&eacute;tricos, tintas, materiais de marcenaria, ferragens e acess&oacute;rios em geral</p>
+      <p><strong>Resultado que entrega:</strong> Agilidade na entrega, pre&ccedil;o justo e material de qualidade</p>
+      <p><strong>Formato:</strong> Loja f&iacute;sica</p>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">An&aacute;lise <em>Aprofundada</em></div>
+
+      <div class="data-grid">
+        <div class="data-card">
+          <div class="data-card-value">R$ 238,9 bi</div>
+          <div class="data-card-label">Faturamento anual do varejo de materiais de constru&ccedil;&atilde;o no Brasil</div>
+          <div class="data-card-source">Fonte: Anamaco</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">160.627</div>
+          <div class="data-card-label">Lojas de materiais de constru&ccedil;&atilde;o em atividade no pa&iacute;s</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">R$ 40 bi</div>
+          <div class="data-card-label">Mercado de tintas &mdash; Brasil &eacute; o 4&ordm; maior produtor mundial</div>
+          <div class="data-card-source">Fonte: Abrafati</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">+11,7%</div>
+          <div class="data-card-label">Crescimento do Nordeste em tintas &mdash; l&iacute;der nacional em 2026</div>
+          <div class="data-card-source">Fonte: Abrafati</div>
+        </div>
+      </div>
+
+      <div class="data-grid">
+        <div class="data-card">
+          <div class="data-card-value">R$ 50&ndash;80 bi</div>
+          <div class="data-card-label">Mercado anual de revenda e distribui&ccedil;&atilde;o de materiais el&eacute;tricos</div>
+          <div class="data-card-source">Fonte: Abreme</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">R$ 9+ bi</div>
+          <div class="data-card-label">Faturamento do setor de ferramentas no Brasil</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">+40%</div>
+          <div class="data-card-label">Aumento nos empregos da constru&ccedil;&atilde;o civil em Barreiras nos &uacute;ltimos 4 anos</div>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <p>A Pereira Luz e Cor ocupa um posicionamento raro no mercado de Barreiras: <strong>&eacute; uma das &uacute;nicas lojas da regi&atilde;o que atende os tr&ecirc;s segmentos simultaneamente</strong> &mdash; materiais el&eacute;tricos, tintas e marcenaria. Enquanto os concorrentes se especializam em apenas uma dessas &aacute;reas, a loja pode ser o destino &uacute;nico para quem constr&oacute;i, reforma e decora.</p>
+      </div>
+
+      <div class="conclusion-box">
+        <h3>O Momento &eacute; <em>Agora</em></h3>
+        <p>O Oeste da Bahia vive um boom imobili&aacute;rio impulsionado pelo agroneg&oacute;cio. Empreendimentos como Master Plan, Brisas Bali e Shopping Encontro das &Aacute;guas transformam Barreiras. O programa Minha Casa, Minha Vida investe R$ 13,64 bilh&otilde;es na Bahia com 108.900 unidades. Cada nova constru&ccedil;&atilde;o precisa de material el&eacute;trico, tinta e acabamento &mdash; e a Pereira Luz e Cor est&aacute; posicionada para capturar essa demanda.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     SECAO 02: PUBLICO-ALVO
+     ============================================================ -->
+<div class="container" id="publico-alvo">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-tag">Se&ccedil;&atilde;o 02</div>
+      <div class="section-title">P&uacute;blico-<em>Alvo</em></div>
+      <p class="section-subtitle">Quem compra, quem decide e quem a loja precisa conquistar.</p>
+    </div>
+
+    <div class="client-box">
+      <div class="client-box-tag">O que o cliente disse</div>
+      <p><strong>Cliente ideal:</strong> Construtor, pedreiro, pintor, marceneiro, eletricista, dono(a) de casa</p>
+      <p><strong>Profiss&atilde;o/perfil:</strong> Vendas</p>
+      <p><strong>Dor principal:</strong> Timidez por&eacute;m com tempo melhora</p>
+      <p><strong>Desejo mais forte:</strong> Vender muito</p>
+      <p><strong>Situa&ccedil;&atilde;o atual:</strong> In&iacute;cio de um projeto que ser&aacute; muito grande em breve</p>
+      <p><strong>Situa&ccedil;&atilde;o desejada:</strong> Quero a loja sendo conhecida na regi&atilde;o toda!</p>
+    </div>
+
+    <!-- PERFIL DO DONO -->
+    <div class="subsection">
+      <div class="subsection-title">O Dono da <em>Loja</em></div>
+
+      <div class="vision-box">
+        <div class="vision-box-tag">Vis&atilde;o estrat&eacute;gica</div>
+        <p>O cliente est&aacute; em <strong>fase inicial</strong>, com ambi&ccedil;&atilde;o clara de crescimento regional. A dor que ele relatou &mdash; timidez &mdash; &eacute; pessoal, n&atilde;o do consumidor final. E &eacute; exatamente a&iacute; que a estrat&eacute;gia digital se torna decisiva: <strong>a marca comunica mesmo quando o dono n&atilde;o est&aacute;</strong>.</p>
+        <p>O Instagram, o WhatsApp e o Google Meu Neg&oacute;cio trabalham 24 horas por dia. A presen&ccedil;a digital supera a timidez porque gera autoridade, familiaridade e confian&ccedil;a antes mesmo do primeiro contato presencial.</p>
+        <p><strong>Meta:</strong> tornar a Pereira Luz e Cor refer&ecirc;ncia em materiais el&eacute;tricos, tintas e marcenaria no Oeste da Bahia.</p>
+      </div>
+    </div>
+
+    <!-- CONSUMIDORES -->
+    <div class="subsection">
+      <div class="subsection-title">Os <em>Consumidores</em></div>
+
+      <div class="data-grid">
+        <div class="data-card">
+          <div class="data-card-value">63%</div>
+          <div class="data-card-label">Masculino</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">37%</div>
+          <div class="data-card-label">Feminino</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">52%</div>
+          <div class="data-card-label">Classe B</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">31%</div>
+          <div class="data-card-label">Classe C</div>
+        </div>
+      </div>
+
+      <div class="data-grid">
+        <div class="data-card">
+          <div class="data-card-value">14%</div>
+          <div class="data-card-label">Classe A</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">R$ 110</div>
+          <div class="data-card-label">Ticket m&eacute;dio &mdash; consumidor final</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">R$ 300&ndash;1.500</div>
+          <div class="data-card-label">Ticket m&eacute;dio &mdash; profissional (eletricista, pintor, marceneiro)</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">50&ndash;70%</div>
+          <div class="data-card-label">Faturamento que vem de profissionais</div>
+        </div>
+      </div>
+
+      <div class="data-grid">
+        <div class="data-card">
+          <div class="data-card-value">71%</div>
+          <div class="data-card-label">Decidem a marca no ponto de venda</div>
+          <div class="data-card-source">Fonte: Popai Brasil</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">69%</div>
+          <div class="data-card-label">Pedem aux&iacute;lio do vendedor para escolher</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">53%</div>
+          <div class="data-card-label">Pesquisam online antes de ir &agrave; loja</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">13%</div>
+          <div class="data-card-label">Compram efetivamente pela internet</div>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <p><strong>Profissionais s&atilde;o o motor do faturamento.</strong> Eletricistas, pintores e marceneiros compram com frequ&ecirc;ncia de 2 a 4 vezes por semana, com ticket m&eacute;dio de R$ 300 a R$ 1.500, e representam at&eacute; 70% da receita. Quem conquista o profissional, conquista o fluxo constante &mdash; eles trazem seus clientes junto.</p>
+      </div>
+
+      <ul class="content-list">
+        <li><strong>97% das lojas usam WhatsApp</strong> como canal de vendas &mdash; n&atilde;o estar no WhatsApp &eacute; n&atilde;o existir para o profissional</li>
+        <li><strong>Consumidor do interior:</strong> confian&ccedil;a pessoal vale mais do que propaganda &mdash; boca a boca &eacute; decisivo</li>
+        <li><strong>S&aacute;bado de manh&atilde;</strong> &eacute; o pico absoluto de vendas &mdash; equipe refor&ccedil;ada e estoque preparado</li>
+        <li><strong>53% pesquisam online</strong> antes de ir &agrave; loja, mas apenas 13% compram online &mdash; quem aparece na busca digital, ganha a visita</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     SECAO 03: OFERTA
+     ============================================================ -->
+<div class="container" id="oferta">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-tag">Se&ccedil;&atilde;o 03</div>
+      <div class="section-title">A <em>Oferta</em></div>
+      <p class="section-subtitle">O que a loja vende, como entrega e o que diferencia.</p>
+    </div>
+
+    <div class="client-box">
+      <div class="client-box-tag">O que o cliente disse</div>
+      <p><strong>Nome da oferta:</strong> Materiais el&eacute;tricos, tintas e etc.</p>
+      <p><strong>Pre&ccedil;o:</strong> A partir de R$ 0,80 at&eacute; R$ 1.000</p>
+      <p><strong>Garantia:</strong> Depende do produto vendido</p>
+      <p><strong>O que est&aacute; incluso:</strong> Produto + consultoria para entender necessidade + qualidade</p>
+      <p><strong>B&ocirc;nus diferencial:</strong> A definir</p>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">Vis&atilde;o <em>Estrat&eacute;gica</em></div>
+
+      <div class="data-grid">
+        <div class="data-card">
+          <div class="data-card-value">R$ 0,80</div>
+          <div class="data-card-label">Pre&ccedil;o de entrada &mdash; desde parafusos e acess&oacute;rios b&aacute;sicos</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">R$ 1.000</div>
+          <div class="data-card-label">Teto de cat&aacute;logo &mdash; ferramentas el&eacute;tricas profissionais</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">3</div>
+          <div class="data-card-label">Segmentos reunidos &mdash; el&eacute;trico + tintas + marcenaria</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">69%</div>
+          <div class="data-card-label">Dos consumidores pedem orienta&ccedil;&atilde;o do vendedor na compra</div>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <p>A amplitude de pre&ccedil;o (R$ 0,80 a R$ 1.000) cobre desde os itens mais b&aacute;sicos at&eacute; ferramentas profissionais, atendendo tanto o dono de casa que precisa de um interruptor quanto o marceneiro que compra uma tupia. A <strong>consultoria t&eacute;cnica inclu&iacute;da</strong> &eacute; o maior diferencial: a pesquisa mostra que o vendedor &eacute; mais decisivo que qualquer publicidade, e nenhum concorrente oferece consultoria estruturada.</p>
+      </div>
+
+      <div class="suggestion-box">
+        <div class="suggestion-box-tag">Sugest&atilde;o estrat&eacute;gica &mdash; B&ocirc;nus diferencial</div>
+        <p><strong>Consultoria personalizada na compra:</strong> c&aacute;lculo de material necess&aacute;rio, orienta&ccedil;&atilde;o de aplica&ccedil;&atilde;o, indica&ccedil;&atilde;o de profissionais da regi&atilde;o. O cliente chega com o problema e sai com a solu&ccedil;&atilde;o completa &mdash; produto certo, quantidade certa e, se precisar, o contato do profissional que vai executar.</p>
+        <p><strong>Garantia de f&aacute;brica</strong> em todos os produtos + troca facilitada sem burocracia.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     SECAO 04: OBJECOES
+     ============================================================ -->
+<div class="container" id="objecoes">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-tag">Se&ccedil;&atilde;o 04</div>
+      <div class="section-title">Obje&ccedil;&otilde;es e <em>Respostas</em></div>
+      <p class="section-subtitle">As cinco obje&ccedil;&otilde;es mais comuns do setor, com respostas e provas para quebrar cada uma.</p>
+    </div>
+
+    <div class="suggestion-box">
+      <div class="suggestion-box-tag">Sugest&atilde;o estrat&eacute;gica &mdash; Se&ccedil;&atilde;o criada com base na pesquisa</div>
+      <p>O cliente n&atilde;o preencheu esta se&ccedil;&atilde;o. As obje&ccedil;&otilde;es abaixo foram constru&iacute;das a partir do mapeamento dos 20 concorrentes e do comportamento do consumidor na regi&atilde;o de Barreiras.</p>
+    </div>
+
+    <div class="table-wrapper">
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>Obje&ccedil;&atilde;o</th>
+            <th>Resposta</th>
+            <th>Prova</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>&ldquo;J&aacute; compro na JK/Eletroluz&rdquo;</strong></td>
+            <td>Especializa&ccedil;&atilde;o nos 3 segmentos + consultoria t&eacute;cnica que home center n&atilde;o oferece</td>
+            <td>Nenhum concorrente domina el&eacute;trico + tintas + marcenaria ao mesmo tempo</td>
+          </tr>
+          <tr>
+            <td><strong>&ldquo;Loja nova, n&atilde;o conhe&ccedil;o&rdquo;</strong></td>
+            <td>Produtos das mesmas marcas l&iacute;deres: Tramontina, Schneider, Suvinil, Makita</td>
+            <td>Garantia de f&aacute;brica em todos os produtos</td>
+          </tr>
+          <tr>
+            <td><strong>&ldquo;Encontro mais barato na internet&rdquo;</strong></td>
+            <td>Pre&ccedil;o justo sem frete + produto na hora + consultoria presencial</td>
+            <td>87% dos consumidores do setor compram na loja f&iacute;sica, n&atilde;o online</td>
+          </tr>
+          <tr>
+            <td><strong>&ldquo;N&atilde;o sei se tem o que preciso&rdquo;</strong></td>
+            <td>3 segmentos completos + encomenda sob medida para itens especiais</td>
+            <td>Cat&aacute;logo diversificado de R$ 0,80 a R$ 1.000</td>
+          </tr>
+          <tr>
+            <td><strong>&ldquo;Fica longe de mim&rdquo;</strong></td>
+            <td>Entrega &aacute;gil na regi&atilde;o + WhatsApp para or&ccedil;amento r&aacute;pido</td>
+            <td>Clientes da regi&atilde;o que j&aacute; confiam e voltam</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="highlight-box">
+      <p>A obje&ccedil;&atilde;o mais forte &eacute; a <strong>falta de conhecimento sobre a loja</strong>. Em uma cidade onde boca a boca &eacute; o principal canal de descoberta, a estrat&eacute;gia digital precisa gerar familiaridade antes mesmo da primeira visita. Instagram ativo, Google Meu Neg&oacute;cio otimizado e WhatsApp estruturado resolvem essa barreira.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     SECAO 05: CONCORRENTES
+     ============================================================ -->
+<div class="container" id="concorrentes">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-tag">Se&ccedil;&atilde;o 05</div>
+      <div class="section-title">An&aacute;lise dos <em>Concorrentes</em></div>
+      <p class="section-subtitle">Os 5 principais concorrentes mapeados na regi&atilde;o de Barreiras &mdash; for&ccedil;as, fraquezas e o que os diferencia da Pereira Luz e Cor.</p>
+    </div>
+
+    <div class="client-box">
+      <div class="client-box-tag">O que o cliente disse</div>
+      <p><strong>Concorrente citado:</strong> Eletroluz &mdash; bom em divulga&ccedil;&atilde;o, falta diversidade em materiais n&atilde;o-el&eacute;tricos</p>
+      <p><strong>Diferencial da Pereira:</strong> Abrange outros tipos de materiais al&eacute;m do el&eacute;trico</p>
+    </div>
+
+    <!-- CONCORRENTE 1 -->
+    <div class="competitor-card">
+      <div class="competitor-header">
+        <div style="display:flex; align-items:center;">
+          <span class="competitor-rank">#1</span>
+          <div class="competitor-name">JK <em>Home Center</em></div>
+        </div>
+        <span class="badge badge-alto">Alto &mdash; Amea&ccedil;a</span>
+      </div>
+      <div class="competitor-meta">
+        <div class="competitor-meta-item"><strong>Segmento:</strong> Home center generalista</div>
+        <div class="competitor-meta-item"><strong>Lojas:</strong> 3 (Barreiras, LEM, Roda Velha)</div>
+        <div class="competitor-meta-item"><strong>Tempo:</strong> 25+ anos</div>
+        <div class="competitor-meta-item"><strong>Instagram:</strong> 30.600 seguidores</div>
+      </div>
+      <div class="competitor-details">
+        <div class="competitor-detail-box">
+          <h4>For&ccedil;as</h4>
+          <p>Maior audi&ecirc;ncia digital da regi&atilde;o. Tr&ecirc;s lojas f&iacute;sicas. Marca consolidada h&aacute; d&eacute;cadas.</p>
+        </div>
+        <div class="competitor-detail-box">
+          <h4>Fraquezas</h4>
+          <p>SEM site, SEM e-commerce. Generalista &mdash; n&atilde;o se especializa em nenhum segmento.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONCORRENTE 2 -->
+    <div class="competitor-card">
+      <div class="competitor-header">
+        <div style="display:flex; align-items:center;">
+          <span class="competitor-rank">#2</span>
+          <div class="competitor-name"><em>Eletroluz</em></div>
+        </div>
+        <span class="badge badge-alto">Alto &mdash; Amea&ccedil;a</span>
+      </div>
+      <div class="competitor-meta">
+        <div class="competitor-meta-item"><strong>Segmento:</strong> Materiais el&eacute;tricos</div>
+        <div class="competitor-meta-item"><strong>Tempo:</strong> 48 anos</div>
+        <div class="competitor-meta-item"><strong>Instagram:</strong> 6.846 seguidores (muito ativo)</div>
+        <div class="competitor-meta-item"><strong>Diferencial:</strong> Forte em energia solar</div>
+      </div>
+      <div class="competitor-details">
+        <div class="competitor-detail-box">
+          <h4>For&ccedil;as</h4>
+          <p>Instagram muito ativo, 48 anos de mercado, forte em energia solar fotovoltaica.</p>
+        </div>
+        <div class="competitor-detail-box">
+          <h4>Fraquezas</h4>
+          <p>N&Atilde;O diversifica fora do el&eacute;trico. N&atilde;o vende tintas nem materiais de marcenaria.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONCORRENTE 3 -->
+    <div class="competitor-card">
+      <div class="competitor-header">
+        <div style="display:flex; align-items:center;">
+          <span class="competitor-rank">#3</span>
+          <div class="competitor-name">Casa do <em>Marceneiro</em></div>
+        </div>
+        <span class="badge badge-alto">Alto &mdash; Amea&ccedil;a</span>
+      </div>
+      <div class="competitor-meta">
+        <div class="competitor-meta-item"><strong>Segmento:</strong> Marcenaria</div>
+        <div class="competitor-meta-item"><strong>Lojas:</strong> 2</div>
+        <div class="competitor-meta-item"><strong>Tempo:</strong> 26 anos</div>
+        <div class="competitor-meta-item"><strong>Instagram:</strong> 5.877 seguidores</div>
+      </div>
+      <div class="competitor-details">
+        <div class="competitor-detail-box">
+          <h4>For&ccedil;as</h4>
+          <p>Domina o segmento de marcenaria na regi&atilde;o. Duas lojas f&iacute;sicas. Marca reconhecida.</p>
+        </div>
+        <div class="competitor-detail-box">
+          <h4>Fraquezas</h4>
+          <p>N&Atilde;O vende materiais el&eacute;tricos nem tintas. Foco &uacute;nico em marcenaria.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONCORRENTE 4 -->
+    <div class="competitor-card">
+      <div class="competitor-header">
+        <div style="display:flex; align-items:center;">
+          <span class="competitor-rank">#4</span>
+          <div class="competitor-name">El&eacute;trica <em>L&iacute;der</em></div>
+        </div>
+        <span class="badge badge-alto">Alto &mdash; Amea&ccedil;a</span>
+      </div>
+      <div class="competitor-meta">
+        <div class="competitor-meta-item"><strong>Segmento:</strong> Materiais el&eacute;tricos</div>
+        <div class="competitor-meta-item"><strong>Instagram:</strong> 1.610 seguidores</div>
+        <div class="competitor-meta-item"><strong>Diferencial:</strong> &Uacute;NICO com e-commerce</div>
+      </div>
+      <div class="competitor-details">
+        <div class="competitor-detail-box">
+          <h4>For&ccedil;as</h4>
+          <p>&Uacute;nico concorrente com e-commerce ativo. Marcas premium no portf&oacute;lio.</p>
+        </div>
+        <div class="competitor-detail-box">
+          <h4>Fraquezas</h4>
+          <p>Apenas el&eacute;trico. Audi&ecirc;ncia digital pequena (1.610 seguidores).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONCORRENTE 5 -->
+    <div class="competitor-card">
+      <div class="competitor-header">
+        <div style="display:flex; align-items:center;">
+          <span class="competitor-rank">#5</span>
+          <div class="competitor-name">Aquacores <em>Tintas</em></div>
+        </div>
+        <span class="badge badge-alto">Alto &mdash; Amea&ccedil;a</span>
+      </div>
+      <div class="competitor-meta">
+        <div class="competitor-meta-item"><strong>Segmento:</strong> Tintas</div>
+        <div class="competitor-meta-item"><strong>Mercados:</strong> 2</div>
+        <div class="competitor-meta-item"><strong>Instagram:</strong> 676 seguidores</div>
+      </div>
+      <div class="competitor-details">
+        <div class="competitor-detail-box">
+          <h4>For&ccedil;as</h4>
+          <p>Especialista em tintas. Atua em dois mercados da regi&atilde;o.</p>
+        </div>
+        <div class="competitor-detail-box">
+          <h4>Fraquezas</h4>
+          <p>SEM materiais el&eacute;tricos, SEM marcenaria. Presen&ccedil;a digital m&iacute;nima (676 seguidores).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="conclusion-box">
+      <h3>Nenhum Concorrente Domina os <em>3 Segmentos</em></h3>
+      <p>Dos 5 principais concorrentes mapeados, <strong>todos s&atilde;o especialistas em apenas um segmento</strong>. A JK &eacute; generalista mas n&atilde;o se posiciona como especialista em nada. A Eletroluz s&oacute; vende el&eacute;trico. A Casa do Marceneiro s&oacute; vende marcenaria. A Aquacores s&oacute; vende tinta.</p>
+      <p>A Pereira Luz e Cor &eacute; a <strong>&uacute;nica que pode ser &ldquo;a loja completa para quem constr&oacute;i, reforma e decora&rdquo;</strong> &mdash; com atendimento consultivo que nenhum concorrente oferece de forma estruturada.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     SECAO 06: ANGULOS DE CAMPANHA
+     ============================================================ -->
+<div class="container" id="angulos">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-tag">Se&ccedil;&atilde;o 06</div>
+      <div class="section-title">&#194;ngulos de <em>Campanha</em></div>
+      <p class="section-subtitle">As entradas emocionais e racionais para a comunica&ccedil;&atilde;o da marca.</p>
+    </div>
+
+    <div class="client-box">
+      <div class="client-box-tag">O que o cliente disse</div>
+      <p><strong>Dor:</strong> Atendimento demorado, mau atendimento, pre&ccedil;os que fogem do padr&atilde;o</p>
+      <p><strong>Desejo:</strong> Bom atendimento, rapidez no atendimento e entrega, pre&ccedil;o justo</p>
+      <p><strong>Prova:</strong> Pre&ccedil;o justo, diversidade e qualidade</p>
+      <p><strong>Urg&ecirc;ncia:</strong> O mercado precisa parar de competir e se aperfei&ccedil;oar em ajudar um ao outro</p>
+      <p><strong>Curiosidade:</strong> A definir</p>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">An&aacute;lise <em>Aprofundada</em></div>
+
+      <div class="table-wrapper">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>&#194;ngulo</th>
+              <th>O que o Cliente Disse</th>
+              <th>Expans&atilde;o Estrat&eacute;gica</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="highlight-cell"><strong>Dor</strong></td>
+              <td>Atendimento demorado, mau atendimento, pre&ccedil;os fora do padr&atilde;o</td>
+              <td>71% dos consumidores decidem na loja &mdash; atendimento ruim = venda perdida. Concorrentes focam em volume, n&atilde;o em consultoria</td>
+            </tr>
+            <tr>
+              <td class="highlight-cell"><strong>Desejo</strong></td>
+              <td>Bom atendimento, rapidez, pre&ccedil;o justo</td>
+              <td>Confian&ccedil;a pessoal supera propaganda no interior. &ldquo;Um lugar onde te conhecem pelo nome&rdquo;</td>
+            </tr>
+            <tr>
+              <td class="highlight-cell"><strong>Prova</strong></td>
+              <td>Pre&ccedil;o justo, diversidade e qualidade</td>
+              <td>Marcas l&iacute;deres (Tramontina, Schneider, Suvinil, Makita, Bosch) + pre&ccedil;o competitivo + diversidade real em 3 segmentos</td>
+            </tr>
+            <tr>
+              <td class="highlight-cell"><strong>Urg&ecirc;ncia</strong></td>
+              <td>Mercado precisa cooperar, n&atilde;o s&oacute; competir</td>
+              <td>Boom imobili&aacute;rio em Barreiras (+40% constru&ccedil;&atilde;o em 4 anos), safra agr&iacute;cola injetando renda, MCMV 108.900 unidades na Bahia</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="suggestion-box">
+        <div class="suggestion-box-tag">Sugest&atilde;o estrat&eacute;gica &mdash; &#194;ngulo de Curiosidade</div>
+        <p><strong>&ldquo;A loja que re&uacute;ne o que 5 lojas vendem separado.&rdquo;</strong></p>
+        <p>O conceito do balc&atilde;o &uacute;nico: enquanto o consumidor de Barreiras precisa visitar 3 a 5 lojas diferentes para comprar material el&eacute;trico, tinta e ferragem de marcenaria, a Pereira Luz e Cor resolve tudo em uma &uacute;nica parada. Esse &acirc;ngulo gera curiosidade imediata e diferencia a marca de todos os concorrentes.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     SECAO 07: PROMESSAS
+     ============================================================ -->
+<div class="container" id="promessas">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-tag">Se&ccedil;&atilde;o 07</div>
+      <div class="section-title">Promessas da <em>Marca</em></div>
+      <p class="section-subtitle">A promessa central e as sub-promessas que sustentam o posicionamento.</p>
+    </div>
+
+    <div class="client-box">
+      <div class="client-box-tag">O que o cliente disse</div>
+      <p><strong>Promessa central:</strong> Compromisso com cliente, pre&ccedil;o justo e qualidade nos produtos</p>
+      <p><strong>Sub-promessas:</strong> A definir</p>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">Promessa Central <em>Refinada</em></div>
+
+      <div class="conclusion-box">
+        <h3>Tudo para construir, reformar e decorar &mdash; com pre&ccedil;o justo, qualidade comprovada e quem entende do assunto ao <em>seu lado</em>.</h3>
+      </div>
+
+      <div class="suggestion-box">
+        <div class="suggestion-box-tag">Sugest&atilde;o estrat&eacute;gica &mdash; Sub-promessas</div>
+        <p><strong>Sub-promessa 1 &mdash; Consultoria especializada:</strong> ajudamos a calcular, escolher e aplicar o material certo para cada projeto. O cliente n&atilde;o compra sozinho.</p>
+        <p><strong>Sub-promessa 2 &mdash; Variedade real:</strong> materiais el&eacute;tricos, tintas, marcenaria, ferragens e acess&oacute;rios no mesmo lugar. Sem precisar rodar a cidade.</p>
+        <p><strong>Sub-promessa 3 &mdash; Agilidade:</strong> estoque pronto, entrega r&aacute;pida e or&ccedil;amento pelo WhatsApp em at&eacute; 30 minutos.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     SECAO 08: PROVAS
+     ============================================================ -->
+<div class="container" id="provas">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-tag">Se&ccedil;&atilde;o 08</div>
+      <div class="section-title">Provas e <em>Credenciais</em></div>
+      <p class="section-subtitle">As evid&ecirc;ncias que sustentam as promessas da marca.</p>
+    </div>
+
+    <div class="client-box">
+      <div class="client-box-tag">O que o cliente disse</div>
+      <p><strong>Depoimento:</strong> &ldquo;Pois al&eacute;m de variedade tem pre&ccedil;o justo&rdquo;</p>
+      <p><strong>Resultados num&eacute;ricos:</strong> A definir</p>
+      <p><strong>Credenciais:</strong> A definir</p>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">Vis&atilde;o <em>Estrat&eacute;gica</em></div>
+
+      <div class="highlight-box">
+        <p>O depoimento j&aacute; existente &eacute; uma prova social valiosa: <strong>os clientes j&aacute; reconhecem variedade + pre&ccedil;o justo</strong>. Isso confirma que o posicionamento est&aacute; correto. O pr&oacute;ximo passo &eacute; sistematizar a coleta de provas.</p>
+      </div>
+
+      <div class="suggestion-box">
+        <div class="suggestion-box-tag">Sugest&atilde;o estrat&eacute;gica &mdash; Resultados num&eacute;ricos</div>
+        <p><strong>A&ccedil;&atilde;o recomendada:</strong> catalogar o n&uacute;mero de SKUs dispon&iacute;veis, a quantidade de marcas no portf&oacute;lio e o total de categorias atendidas. Esses n&uacute;meros se transformam em provas concretas para a comunica&ccedil;&atilde;o: &ldquo;mais de X produtos em Y marcas de confian&ccedil;a&rdquo;.</p>
+      </div>
+
+      <div class="suggestion-box">
+        <div class="suggestion-box-tag">Sugest&atilde;o estrat&eacute;gica &mdash; Credenciais</div>
+        <p><strong>Parceria com marcas l&iacute;deres nacionais:</strong> Tramontina, Schneider, Suvinil, Bosch, Makita, Coral, Legrand, Vonder, entre outras. Essas marcas t&ecirc;m programas de revenda e selos que podem ser exibidos na loja e nas redes sociais.</p>
+        <p><strong>Prova de mercado:</strong> os dados da pesquisa validam o posicionamento &mdash; 71% decidem na loja, 69% pedem orienta&ccedil;&atilde;o ao vendedor, consultoria &eacute; o maior diferencial competitivo do setor.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     SECAO 09: MECANISMO UNICO
+     ============================================================ -->
+<div class="container" id="mecanismo">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-tag">Se&ccedil;&atilde;o 09</div>
+      <div class="section-title">Mecanismo <em>&Uacute;nico</em></div>
+      <p class="section-subtitle">O m&eacute;todo exclusivo que diferencia a Pereira Luz e Cor de todos os concorrentes.</p>
+    </div>
+
+    <div class="suggestion-box">
+      <div class="suggestion-box-tag">Sugest&atilde;o estrat&eacute;gica &mdash; Se&ccedil;&atilde;o criada com base na pesquisa</div>
+      <p>O cliente n&atilde;o preencheu esta se&ccedil;&atilde;o. O mecanismo abaixo foi constru&iacute;do a partir da an&aacute;lise competitiva e do comportamento do consumidor regional.</p>
+    </div>
+
+    <div class="conclusion-box">
+      <h3>O Balc&atilde;o <em>Completo</em></h3>
+      <p>Em Barreiras, o consumidor comum precisa visitar de 3 a 5 lojas diferentes para comprar material el&eacute;trico, tinta e ferragem de marcenaria. A Pereira Luz e Cor resolve tudo em uma &uacute;nica parada &mdash; com consultoria t&eacute;cnica inclu&iacute;da.</p>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">Por que <em>Funciona</em></div>
+
+      <ul class="content-list">
+        <li><strong>Conveni&ecirc;ncia real:</strong> o profissional economiza tempo (2 a 4 visitas por semana) e o dono de casa economiza deslocamento</li>
+        <li><strong>Consultoria integrada:</strong> o vendedor entende de el&eacute;trica, de tintas e de marcenaria &mdash; pode orientar o projeto inteiro, n&atilde;o s&oacute; uma parte</li>
+        <li><strong>Exclusividade competitiva:</strong> nenhum concorrente mapeado oferece os 3 segmentos com atendimento consultivo estruturado</li>
+        <li><strong>Escal&aacute;vel:</strong> o conceito &ldquo;Balc&atilde;o Completo&rdquo; pode se expandir para incluir novos segmentos (energia solar, automa&ccedil;&atilde;o residencial, ilumina&ccedil;&atilde;o LED) sem perder o posicionamento</li>
+      </ul>
+
+      <div class="highlight-box">
+        <p>O mecanismo n&atilde;o &eacute; um slogan &mdash; &eacute; uma <strong>experi&ecirc;ncia real de compra</strong>. O cliente entra com um problema (reforma, constru&ccedil;&atilde;o, manuten&ccedil;&atilde;o) e sai com tudo resolvido: o produto certo, a quantidade certa, a orienta&ccedil;&atilde;o de aplica&ccedil;&atilde;o e, se precisar, o contato de um profissional de confian&ccedil;a.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     SECAO 10: NIVEL DE CONSCIENCIA
+     ============================================================ -->
+<div class="container" id="consciencia">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-tag">Se&ccedil;&atilde;o 10</div>
+      <div class="section-title">N&iacute;vel de <em>Consci&ecirc;ncia</em></div>
+      <p class="section-subtitle">Onde o p&uacute;blico est&aacute; na escala de consci&ecirc;ncia e como a comunica&ccedil;&atilde;o deve se adaptar.</p>
+    </div>
+
+    <div class="client-box">
+      <div class="client-box-tag">O que o cliente disse</div>
+      <p><strong>N&iacute;vel:</strong> Consciente da Solu&ccedil;&atilde;o</p>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">An&aacute;lise <em>Aprofundada</em></div>
+
+      <div class="data-grid">
+        <div class="data-card data-card-wide">
+          <div class="data-card-value">Consciente da Solu&ccedil;&atilde;o</div>
+          <div class="data-card-label">O p&uacute;blico SABE que precisa de materiais el&eacute;tricos, tintas e ferramentas. Mas ainda n&atilde;o conhece a Pereira Luz e Cor como op&ccedil;&atilde;o.</div>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <p><strong>Implica&ccedil;&atilde;o estrat&eacute;gica:</strong> n&atilde;o &eacute; necess&aacute;rio educar o p&uacute;blico sobre o problema (ele j&aacute; sabe que precisa de materiais). A comunica&ccedil;&atilde;o deve focar em <strong>diferencia&ccedil;&atilde;o</strong> &mdash; &ldquo;por que comprar aqui e n&atilde;o ali&rdquo;.</p>
+      </div>
+
+      <ul class="content-list">
+        <li><strong>Conte&uacute;do de compara&ccedil;&atilde;o:</strong> mostrar a variedade da loja versus a limita&ccedil;&atilde;o dos concorrentes</li>
+        <li><strong>Conte&uacute;do de prova:</strong> demonstrar pre&ccedil;o justo com fotos reais de etiquetas e produtos</li>
+        <li><strong>Conte&uacute;do de expertise:</strong> dicas t&eacute;cnicas que posicionam a loja como autoridade (calcular material el&eacute;trico, escolher tinta certa, combinar ferramentas)</li>
+        <li><strong>Conte&uacute;do de familiaridade:</strong> mostrar o dia a dia da loja, a equipe, o atendimento &mdash; criar a sensa&ccedil;&atilde;o de &ldquo;eu j&aacute; conhe&ccedil;o esse lugar&rdquo;</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     SECAO 11: TOM DE COMUNICACAO
+     ============================================================ -->
+<div class="container" id="tom">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-tag">Se&ccedil;&atilde;o 11</div>
+      <div class="section-title">Tom de <em>Comunica&ccedil;&atilde;o</em></div>
+      <p class="section-subtitle">A personalidade da marca em cada ponto de contato.</p>
+    </div>
+
+    <div class="client-box">
+      <div class="client-box-tag">O que o cliente disse</div>
+      <p><strong>Persona:</strong> Amigo, parceiro</p>
+      <p><strong>Formal / Casual:</strong> 50/100 (equil&iacute;brio)</p>
+      <p><strong>S&eacute;rio / Divertido:</strong> 100/100 (m&aacute;ximo divertido)</p>
+      <p><strong>T&eacute;cnico / Acess&iacute;vel:</strong> 50/100 (equil&iacute;brio)</p>
+      <p><strong>Autorit&aacute;rio / Amig&aacute;vel:</strong> 50/100 (equil&iacute;brio)</p>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">Escala de <em>Personalidade</em></div>
+
+      <!-- Progress bars -->
+      <div class="progress-row">
+        <div class="progress-labels">
+          <span class="progress-label-left">Formal</span>
+          <span class="progress-label-right">Casual</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" style="width: 50%;"></div>
+        </div>
+        <div class="progress-value">50/100</div>
+      </div>
+
+      <div class="progress-row">
+        <div class="progress-labels">
+          <span class="progress-label-left">S&eacute;rio</span>
+          <span class="progress-label-right">Divertido</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" style="width: 100%;"></div>
+        </div>
+        <div class="progress-value">100/100</div>
+      </div>
+
+      <div class="progress-row">
+        <div class="progress-labels">
+          <span class="progress-label-left">T&eacute;cnico</span>
+          <span class="progress-label-right">Acess&iacute;vel</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" style="width: 50%;"></div>
+        </div>
+        <div class="progress-value">50/100</div>
+      </div>
+
+      <div class="progress-row">
+        <div class="progress-labels">
+          <span class="progress-label-left">Autorit&aacute;rio</span>
+          <span class="progress-label-right">Amig&aacute;vel</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" style="width: 50%;"></div>
+        </div>
+        <div class="progress-value">50/100</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">Vis&atilde;o <em>Estrat&eacute;gica</em></div>
+
+      <div class="highlight-box">
+        <p>O tom no <strong>m&aacute;ximo de divertido</strong> (100/100) define uma marca leve, descontra&iacute;da, que n&atilde;o se leva a s&eacute;rio. Isso alinha perfeitamente com o dado da pesquisa: o consumidor do interior valoriza rela&ccedil;&atilde;o pessoal, humor e proximidade. A persona &ldquo;amigo parceiro&rdquo; refor&ccedil;a essa dire&ccedil;&atilde;o.</p>
+      </div>
+
+      <ul class="content-list">
+        <li><strong>Humor permitido:</strong> memes de obra, situa&ccedil;&otilde;es do dia a dia do pedreiro/eletricista/pintor, linguagem descontra&iacute;da</li>
+        <li><strong>Refer&ecirc;ncia de tom:</strong> Coral usa humor com influenciadores (Gina Indelicada, Nazar&eacute; Amarga) &mdash; a Pereira pode adaptar com humor regional</li>
+        <li><strong>G&iacute;rias regionais:</strong> podem ser usadas no Instagram e WhatsApp para criar identifica&ccedil;&atilde;o local</li>
+        <li><strong>Limite:</strong> o humor nunca deve comprometer a credibilidade t&eacute;cnica. Nos momentos de consultoria e orienta&ccedil;&atilde;o, o tom deve ser confi&aacute;vel e seguro</li>
+        <li><strong>Equil&iacute;brio:</strong> as demais escalas em 50/100 indicam que o cliente quer diversidade &mdash; t&eacute;cnico quando necess&aacute;rio, casual quando poss&iacute;vel, autorit&aacute;rio nunca</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     SECAO 12: RESTRICOES E CONTEXTO
+     ============================================================ -->
+<div class="container" id="restricoes">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-tag">Se&ccedil;&atilde;o 12</div>
+      <div class="section-title">Restri&ccedil;&otilde;es e <em>Contexto</em></div>
+      <p class="section-subtitle">Prazos, or&ccedil;amento, canais e regulamenta&ccedil;&otilde;es do nicho.</p>
+    </div>
+
+    <div class="suggestion-box">
+      <div class="suggestion-box-tag">Sugest&atilde;o estrat&eacute;gica &mdash; Se&ccedil;&atilde;o criada com base na pesquisa</div>
+      <p>O cliente deixou esta se&ccedil;&atilde;o em aberto. As recomenda&ccedil;&otilde;es abaixo foram constru&iacute;das a partir da pesquisa de mercado e do contexto do projeto.</p>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">Prazos <em>Recomendados</em></div>
+
+      <div class="data-grid">
+        <div class="data-card">
+          <div class="data-card-value">90 dias</div>
+          <div class="data-card-label">Fase 1 &mdash; Presen&ccedil;a digital (Instagram profissional, Google Meu Neg&oacute;cio, WhatsApp estruturado)</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">6 meses</div>
+          <div class="data-card-label">Fase 2 &mdash; Tr&aacute;fego pago (Meta Ads + Google Ads regionais)</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">12 meses</div>
+          <div class="data-card-label">Fase 3 &mdash; Expans&atilde;o (cat&aacute;logo digital, programa de fideliza&ccedil;&atilde;o, novos segmentos)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">Or&ccedil;amento <em>Inicial</em></div>
+
+      <div class="highlight-box">
+        <p><strong>Recomenda&ccedil;&atilde;o:</strong> come&ccedil;ar com investimento zero nos canais org&acirc;nicos &mdash; Instagram com conte&uacute;do pr&oacute;prio, Google Meu Neg&oacute;cio (gratuito) e WhatsApp Business (gratuito). Somente ap&oacute;s consolidar a presen&ccedil;a digital, investir em tr&aacute;fego pago com or&ccedil;amento a definir.</p>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">Canais <em>Priorit&aacute;rios</em></div>
+
+      <div class="table-wrapper">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Canal</th>
+              <th>Relev&acirc;ncia</th>
+              <th>Justificativa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Instagram</strong></td>
+              <td class="highlight-cell">26,6% pesquisam</td>
+              <td>Principal vitrine digital &mdash; inspira&ccedil;&atilde;o, antes/depois, produtos, humor</td>
+            </tr>
+            <tr>
+              <td><strong>WhatsApp</strong></td>
+              <td class="highlight-cell">97% das lojas usam</td>
+              <td>Canal de vendas direto &mdash; or&ccedil;amento, pedido, atendimento r&aacute;pido</td>
+            </tr>
+            <tr>
+              <td><strong>Google Meu Neg&oacute;cio</strong></td>
+              <td class="highlight-cell">Buscas locais</td>
+              <td>Aparecer quando o consumidor pesquisa &ldquo;loja de materiais em Barreiras&rdquo;</td>
+            </tr>
+            <tr>
+              <td><strong>YouTube</strong></td>
+              <td class="highlight-cell">35,6% pesquisam</td>
+              <td>Tutoriais, dicas t&eacute;cnicas, &ldquo;como fazer&rdquo; &mdash; canal de autoridade</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">Regulamenta&ccedil;&otilde;es do <em>Nicho</em></div>
+
+      <ul class="content-list">
+        <li><strong>INMETRO:</strong> materiais el&eacute;tricos devem ter certifica&ccedil;&atilde;o obrigat&oacute;ria &mdash; ficar atento ao selo em todos os produtos comercializados</li>
+        <li><strong>ABNT:</strong> normas t&eacute;cnicas para instala&ccedil;&otilde;es el&eacute;tricas (NBR 5410) devem ser referenciadas nas orienta&ccedil;&otilde;es ao cliente</li>
+        <li><strong>FISPQ:</strong> fichas de informa&ccedil;&atilde;o de seguran&ccedil;a obrigat&oacute;rias para tintas e solventes &mdash; disponibilizar quando solicitadas</li>
+        <li><strong>Descarte:</strong> orienta&ccedil;&atilde;o sobre descarte correto de embalagens de tinta, solventes e materiais el&eacute;tricos pode se tornar conte&uacute;do de valor</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-brand">ADS <em>Company</em> &mdash; Assessoria de Marketing e Performance</div>
+  <div class="footer-sub">Briefing Completo &mdash; Pereira Luz e Cor &mdash; Julho 2026</div>
+</div>
+
+</body>
+</html>
