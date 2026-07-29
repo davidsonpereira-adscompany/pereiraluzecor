@@ -1,0 +1,2320 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Análise de Mercado &mdash; Pereira Luz e Cor | ADS Company</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --laranja: #FF5C00;
+    --laranja-hover: #FF7A33;
+    --laranja-soft: rgba(255,92,0,0.08);
+    --laranja-border: rgba(255,92,0,0.15);
+    --preto: #060606;
+    --cinza-escuro: #111;
+    --cinza-card: #141414;
+    --cinza-card-hover: #1A1A1A;
+    --cinza-medio: #2A2A2A;
+    --cinza-claro: #888;
+    --cinza-border: rgba(255,255,255,0.06);
+    --branco: #F5F5F5;
+    --verde: #22C55E;
+    --verde-soft: rgba(34,197,94,0.1);
+    --verde-border: rgba(34,197,94,0.2);
+    --azul: #3B8BFF;
+    --azul-soft: rgba(59,139,255,0.1);
+    --azul-border: rgba(59,139,255,0.2);
+    --amarelo: #FFCB05;
+    --amarelo-soft: rgba(255,203,5,0.1);
+    --amarelo-border: rgba(255,203,5,0.2);
+    --vermelho: #EF4444;
+    --vermelho-soft: rgba(239,68,68,0.1);
+    --vermelho-border: rgba(239,68,68,0.2);
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+  }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--preto);
+    color: var(--branco);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  /* ===== TOP BAR ===== */
+  .top-bar {
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--cinza-border);
+    padding: 14px 32px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .top-bar-left { display: flex; align-items: center; gap: 14px; }
+  .top-bar img { height: 36px; opacity: 0.9; }
+  .top-bar-name {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.8);
+  }
+  .top-bar-name em { font-style: italic; color: var(--laranja); }
+  .top-bar-right { display: flex; align-items: center; gap: 14px; }
+  .top-bar-badge {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--laranja);
+    background: var(--laranja-soft);
+    border: 1px solid var(--laranja-border);
+    padding: 5px 14px;
+    border-radius: 20px;
+  }
+  .btn-voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--branco);
+    background: rgba(255,92,0,0.12);
+    border: 1px solid rgba(255,92,0,0.25);
+    padding: 6px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .btn-voltar:hover {
+    background: var(--laranja);
+    color: #fff;
+    border-color: var(--laranja);
+  }
+  .btn-voltar svg { width: 12px; height: 12px; stroke: currentColor; stroke-width: 2; fill: none; }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 100px 32px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, #0A0705 0%, var(--preto) 100%);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(255,92,0,0.06) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--laranja);
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    color: var(--branco);
+  }
+  .hero h1 em { font-style: italic; color: var(--laranja); }
+  .hero-line { width: 60px; height: 2px; background: var(--laranja); margin: 24px auto; }
+  .hero p {
+    font-size: 1rem;
+    color: var(--cinza-claro);
+    font-weight: 300;
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .info-strip {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding: 0 32px;
+    margin-top: 48px;
+  }
+  .info-item { text-align: center; }
+  .info-label {
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--cinza-claro);
+    margin-bottom: 4px;
+  }
+  .info-value { font-size: 0.95rem; font-weight: 500; color: var(--branco); }
+
+  /* ===== CONTAINER ===== */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+
+  /* ===== SECTION ===== */
+  .section { padding: 72px 0 48px; }
+  .section-header { text-align: center; margin-bottom: 48px; }
+  .section-tag {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--laranja);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    font-weight: 400;
+    color: var(--branco);
+    line-height: 1.3;
+  }
+  .section-title em { font-style: italic; color: var(--laranja); }
+  .section-subtitle {
+    font-size: 0.9rem;
+    color: var(--cinza-claro);
+    font-weight: 300;
+    max-width: 600px;
+    margin: 16px auto 0;
+    line-height: 1.6;
+  }
+
+  /* ===== SUBSECTION ===== */
+  .subsection { margin-bottom: 48px; }
+  .subsection-title {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--branco);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--cinza-border);
+  }
+  .subsection-title em { font-style: italic; color: var(--laranja); }
+
+  /* ===== DATA CARDS ===== */
+  .data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .data-card {
+    background: var(--cinza-card);
+    border: 1px solid var(--cinza-border);
+    padding: 24px 20px;
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .data-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--laranja);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+  .data-card:hover {
+    border-color: rgba(255,92,0,0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  }
+  .data-card:hover::before { opacity: 1; }
+  .data-card-value {
+    font-family: var(--serif);
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    font-weight: 700;
+    color: var(--laranja);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .data-card-label {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--cinza-claro);
+    line-height: 1.5;
+  }
+  .data-card-source {
+    font-size: 0.6rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.25);
+    margin-top: 8px;
+    letter-spacing: 0.05em;
+  }
+
+  /* Wide data cards */
+  .data-card-wide {
+    grid-column: 1 / -1;
+  }
+
+  /* ===== HIGHLIGHT BOX ===== */
+  .highlight-box {
+    background: rgba(255,92,0,0.04);
+    border: 1px solid rgba(255,92,0,0.12);
+    border-left: 3px solid var(--laranja);
+    padding: 24px 28px;
+    margin: 24px 0;
+  }
+  .highlight-box p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.7;
+  }
+  .highlight-box strong { color: var(--laranja); font-weight: 600; }
+
+  /* ===== CONTENT LIST ===== */
+  .content-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+  }
+  .content-list li {
+    padding: 10px 0 10px 24px;
+    position: relative;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.6;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+  }
+  .content-list li:last-child { border-bottom: none; }
+  .content-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 18px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--laranja);
+  }
+  .content-list li strong { color: var(--branco); font-weight: 600; }
+
+  /* ===== NUMBERED LIST ===== */
+  .numbered-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    counter-reset: item;
+  }
+  .numbered-list li {
+    padding: 14px 0 14px 48px;
+    position: relative;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.6;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    counter-increment: item;
+  }
+  .numbered-list li:last-child { border-bottom: none; }
+  .numbered-list li::before {
+    content: counter(item, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 14px;
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--laranja);
+    width: 36px;
+  }
+  .numbered-list li strong { color: var(--branco); font-weight: 600; }
+
+  /* ===== TABLE ===== */
+  .table-wrapper {
+    overflow-x: auto;
+    margin: 24px 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+    min-width: 500px;
+  }
+  .styled-table thead th {
+    background: var(--laranja-soft);
+    color: var(--laranja);
+    font-weight: 600;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,92,0,0.15);
+    white-space: nowrap;
+  }
+  .styled-table tbody td {
+    background: var(--cinza-card);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--cinza-border);
+    color: rgba(255,255,255,0.85);
+    vertical-align: top;
+  }
+  .styled-table tbody tr:hover td {
+    background: var(--cinza-card-hover);
+  }
+  .styled-table .highlight-cell { color: var(--laranja); font-weight: 600; }
+  .styled-table .text-center { text-align: center; }
+
+  /* Threat badges */
+  .badge {
+    display: inline-block;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 10px;
+  }
+  .badge-alto { background: var(--vermelho-soft); color: var(--vermelho); border: 1px solid var(--vermelho-border); }
+  .badge-medio { background: var(--amarelo-soft); color: var(--amarelo); border: 1px solid var(--amarelo-border); }
+  .badge-baixo { background: var(--verde-soft); color: var(--verde); border: 1px solid var(--verde-border); }
+  .badge-sim { background: var(--verde-soft); color: var(--verde); border: 1px solid var(--verde-border); }
+  .badge-nao { background: rgba(255,255,255,0.04); color: var(--cinza-claro); border: 1px solid var(--cinza-border); }
+
+  /* ===== COMPETITOR CARD ===== */
+  .competitor-card {
+    background: var(--cinza-card);
+    border: 1px solid var(--cinza-border);
+    padding: 28px 24px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.35s ease;
+  }
+  .competitor-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 0;
+    background: var(--laranja);
+    transition: height 0.35s ease;
+  }
+  .competitor-card:hover {
+    border-color: rgba(255,92,0,0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  }
+  .competitor-card:hover::before { height: 100%; }
+  .competitor-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .competitor-name {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--branco);
+  }
+  .competitor-name em { font-style: italic; color: var(--laranja); }
+  .competitor-rank {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--laranja);
+    opacity: 0.3;
+    margin-right: 12px;
+  }
+  .competitor-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 16px;
+  }
+  .competitor-meta-item {
+    font-size: 0.75rem;
+    color: var(--cinza-claro);
+  }
+  .competitor-meta-item strong {
+    color: rgba(255,255,255,0.7);
+    font-weight: 500;
+  }
+  .competitor-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .competitor-detail-box {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--cinza-border);
+    padding: 14px 16px;
+  }
+  .competitor-detail-box h4 {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--laranja);
+    margin-bottom: 8px;
+  }
+  .competitor-detail-box p {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+  }
+
+  /* ===== TREND CARD ===== */
+  .trend-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .trend-card {
+    background: var(--cinza-card);
+    border: 1px solid var(--cinza-border);
+    padding: 24px 20px;
+    transition: all 0.35s ease;
+  }
+  .trend-card:hover {
+    border-color: rgba(255,92,0,0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  }
+  .trend-card-tag {
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--laranja);
+    margin-bottom: 10px;
+  }
+  .trend-card h4 {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--branco);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  .trend-card h4 em { font-style: italic; color: var(--laranja); }
+  .trend-card p {
+    font-size: 0.8rem;
+    color: var(--cinza-claro);
+    line-height: 1.6;
+  }
+  .trend-card .trend-value {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--laranja);
+    margin-top: 12px;
+  }
+
+  /* ===== OPPORTUNITY TIMELINE ===== */
+  .timeline-section { margin-bottom: 40px; }
+  .timeline-label {
+    display: inline-block;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+  .timeline-label-imediato { background: var(--verde-soft); color: var(--verde); border: 1px solid var(--verde-border); }
+  .timeline-label-curto { background: var(--azul-soft); color: var(--azul); border: 1px solid var(--azul-border); }
+  .timeline-label-medio { background: var(--amarelo-soft); color: var(--amarelo); border: 1px solid var(--amarelo-border); }
+
+  /* ===== CALENDAR GRID ===== */
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 8px;
+    margin: 24px 0;
+  }
+  .calendar-item {
+    background: var(--cinza-card);
+    border: 1px solid var(--cinza-border);
+    padding: 16px 12px;
+    text-align: center;
+    transition: all 0.3s;
+  }
+  .calendar-item:hover {
+    border-color: rgba(255,92,0,0.2);
+  }
+  .calendar-month {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cinza-claro);
+    margin-bottom: 6px;
+  }
+  .calendar-level {
+    font-family: var(--serif);
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+  .calendar-note {
+    font-size: 0.65rem;
+    color: var(--cinza-claro);
+    margin-top: 4px;
+    line-height: 1.3;
+  }
+  .level-alto { color: var(--verde); }
+  .level-medio { color: var(--amarelo); }
+  .level-baixo { color: var(--vermelho); }
+  .level-pico { color: var(--laranja); }
+
+  /* ===== DIVIDER ===== */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,92,0,0.15), transparent);
+    margin: 0;
+  }
+
+  /* ===== NAV SECTIONS ===== */
+  .section-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    padding: 32px 16px 0;
+  }
+  .section-nav a {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cinza-claro);
+    text-decoration: none;
+    padding: 6px 14px;
+    border: 1px solid var(--cinza-border);
+    border-radius: 20px;
+    transition: all 0.3s;
+  }
+  .section-nav a:hover {
+    color: var(--laranja);
+    border-color: var(--laranja-border);
+    background: var(--laranja-soft);
+  }
+
+  /* ===== REFERENCE CARD ===== */
+  .ref-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .ref-card {
+    background: var(--cinza-card);
+    border: 1px solid var(--cinza-border);
+    padding: 20px;
+    transition: all 0.35s ease;
+  }
+  .ref-card:hover {
+    border-color: rgba(255,92,0,0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  }
+  .ref-card-name {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--branco);
+    margin-bottom: 4px;
+  }
+  .ref-card-name em { font-style: italic; color: var(--laranja); }
+  .ref-card-stat {
+    font-size: 0.7rem;
+    color: var(--laranja);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .ref-card p {
+    font-size: 0.78rem;
+    color: var(--cinza-claro);
+    line-height: 1.5;
+  }
+
+  /* ===== CONCLUSION BOX ===== */
+  .conclusion-box {
+    background: linear-gradient(135deg, rgba(255,92,0,0.06) 0%, rgba(255,92,0,0.02) 100%);
+    border: 1px solid rgba(255,92,0,0.15);
+    padding: 40px 36px;
+    margin: 32px 0;
+  }
+  .conclusion-box h3 {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--branco);
+    margin-bottom: 16px;
+  }
+  .conclusion-box h3 em { font-style: italic; color: var(--laranja); }
+  .conclusion-box p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.8;
+    margin-bottom: 12px;
+  }
+  .conclusion-box p:last-child { margin-bottom: 0; }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    text-align: center;
+    padding: 48px 32px 32px;
+    border-top: 1px solid var(--cinza-border);
+    margin-top: 48px;
+  }
+  .footer-brand {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 8px;
+  }
+  .footer-brand em { font-style: italic; color: var(--laranja); }
+  .footer-sub {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.3);
+    font-weight: 300;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .competitor-details { grid-template-columns: 1fr; }
+    .data-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .top-bar { padding: 12px 16px; }
+    .top-bar-name { display: none; }
+    .top-bar-badge { display: none; }
+    .hero { padding: 64px 20px 48px; }
+    .info-strip { gap: 24px; }
+    .container { padding: 0 16px; }
+    .section { padding: 48px 0 32px; }
+    .data-grid { grid-template-columns: 1fr; }
+    .trend-grid { grid-template-columns: 1fr; }
+    .ref-grid { grid-template-columns: 1fr; }
+    .calendar-grid { grid-template-columns: repeat(3, 1fr); }
+    .competitor-meta { gap: 12px; }
+    .conclusion-box { padding: 24px 20px; }
+  }
+  @media (max-width: 480px) {
+    .calendar-grid { grid-template-columns: repeat(2, 1fr); }
+    .section-nav a { font-size: 0.6rem; padding: 5px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-bar-left">
+    <img src="../ads-logo.png" alt="ADS Company">
+    <span class="top-bar-name">ADS <em>Company</em></span>
+  </div>
+  <div class="top-bar-right">
+    <span class="top-bar-badge">Pesquisa de Mercado</span>
+    <a href="../index.html" class="btn-voltar">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Voltar para a Central
+    </a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Pereira Luz e Cor &mdash; Pesquisa Estrat&eacute;gica</div>
+  <h1>An&aacute;lise de <em>Mercado</em></h1>
+  <div class="hero-line"></div>
+  <p>Mapeamento completo do mercado de materiais el&eacute;tricos, tintas, ferramentas e marcenaria &mdash; com foco na regi&atilde;o do Oeste da Bahia. Dados, tend&ecirc;ncias, concorr&ecirc;ncia e oportunidades estrat&eacute;gicas.</p>
+
+  <div class="info-strip">
+    <div class="info-item">
+      <div class="info-label">Cliente</div>
+      <div class="info-value">Pereira Luz e Cor</div>
+    </div>
+    <div class="info-item">
+      <div class="info-label">Regi&atilde;o</div>
+      <div class="info-value">Barreiras &mdash; BA</div>
+    </div>
+    <div class="info-item">
+      <div class="info-label">Respons&aacute;vel</div>
+      <div class="info-value">Davidson Pereira</div>
+    </div>
+    <div class="info-item">
+      <div class="info-label">Data</div>
+      <div class="info-value">Julho 2026</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION NAV -->
+<div class="section-nav">
+  <a href="#visao-geral">Vis&atilde;o Geral</a>
+  <a href="#economia">Economia Regional</a>
+  <a href="#consumidor">Consumidor</a>
+  <a href="#concorrencia">Concorr&ecirc;ncia</a>
+  <a href="#tendencias">Tend&ecirc;ncias</a>
+  <a href="#referencias">Refer&ecirc;ncias</a>
+  <a href="#redes-sociais">Redes Sociais</a>
+  <a href="#gaps">Gaps e Oportunidades</a>
+  <a href="#sazonalidade">Sazonalidade</a>
+  <a href="#conclusao">Conclus&atilde;o</a>
+</div>
+
+<div class="divider" style="margin-top:32px;"></div>
+
+<!-- ============================================================
+     SECAO 1: VISAO GERAL DO MERCADO
+     ============================================================ -->
+<div class="container" id="visao-geral">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-tag">Se&ccedil;&atilde;o 01</div>
+      <div class="section-title">Vis&atilde;o Geral do <em>Mercado</em></div>
+      <p class="section-subtitle">Panorama dos segmentos de materiais el&eacute;tricos, tintas, ferramentas e varejo de materiais de constru&ccedil;&atilde;o no Brasil.</p>
+    </div>
+
+    <!-- MATERIAIS ELETRICOS -->
+    <div class="subsection">
+      <div class="subsection-title">Materiais <em>El&eacute;tricos</em></div>
+
+      <div class="data-grid">
+        <div class="data-card">
+          <div class="data-card-value">R$ 50&ndash;80 bi</div>
+          <div class="data-card-label">Mercado de revenda e distribui&ccedil;&atilde;o de materiais el&eacute;tricos por ano</div>
+          <div class="data-card-source">Fonte: Abreme</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">R$ 270,8 bi</div>
+          <div class="data-card-label">Faturamento da ind&uacute;stria eletroeletr&ocirc;nica em 2025</div>
+          <div class="data-card-source">Fonte: Abinee</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">R$ 289 bi</div>
+          <div class="data-card-label">Proje&ccedil;&atilde;o para a ind&uacute;stria eletroeletr&ocirc;nica em 2026</div>
+          <div class="data-card-source">Fonte: Abinee</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">+8%</div>
+          <div class="data-card-label">Crescimento em vendas de material de instala&ccedil;&atilde;o el&eacute;trica em 2024</div>
+          <div class="data-card-source">Fonte: Abreme</div>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <p>O setor de materiais el&eacute;tricos cresce de forma consistente entre <strong>3% e 4% ao ano em termos reais</strong>, impulsionado pela constru&ccedil;&atilde;o civil, reforma residencial e expans&atilde;o da energia solar. A proje&ccedil;&atilde;o de R$ 289 bilh&otilde;es para 2026 confirma a tend&ecirc;ncia de alta sustentada.</p>
+      </div>
+
+      <ul class="content-list">
+        <li><strong>Schneider Electric</strong> &mdash; L&iacute;der global em automa&ccedil;&atilde;o e distribui&ccedil;&atilde;o el&eacute;trica, refer&ecirc;ncia em disjuntores e quadros</li>
+        <li><strong>Legrand/Pial</strong> &mdash; L&iacute;der brasileira em tomadas, interruptores e infraestrutura el&eacute;trica</li>
+        <li><strong>Tramontina</strong> &mdash; Linha completa de fios, cabos, disjuntores e quadros com forte presen&ccedil;a no varejo</li>
+        <li><strong>WEG</strong> &mdash; Motores, automa&ccedil;&atilde;o e gera&ccedil;&atilde;o de energia &mdash; multinacional brasileira</li>
+        <li><strong>Steck</strong> &mdash; Prote&ccedil;&atilde;o el&eacute;trica, DPS, disjuntores e solu&ccedil;&otilde;es para instala&ccedil;&otilde;es</li>
+        <li><strong>Intelbras</strong> &mdash; C&acirc;meras, automa&ccedil;&atilde;o, interfones e energia solar residencial</li>
+        <li><strong>Tigre</strong> &mdash; Eletrodutos, conduites e solu&ccedil;&otilde;es hidr&aacute;ulicas e el&eacute;tricas integradas</li>
+      </ul>
+    </div>
+
+    <!-- TINTAS E PINTURA -->
+    <div class="subsection">
+      <div class="subsection-title">Tintas e <em>Pintura</em></div>
+
+      <div class="data-grid">
+        <div class="data-card">
+          <div class="data-card-value">R$ 40 bi</div>
+          <div class="data-card-label">Faturamento anual do setor de tintas no Brasil</div>
+          <div class="data-card-source">Fonte: Abrafati</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">4&ordm;</div>
+          <div class="data-card-label">Posi&ccedil;&atilde;o do Brasil como produtor mundial de tintas</div>
+          <div class="data-card-source">Fonte: Abrafati</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">2+ bi litros</div>
+          <div class="data-card-label">Volume produzido em 2025 &mdash; recorde hist&oacute;rico brasileiro</div>
+          <div class="data-card-source">Fonte: Abrafati</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">+11,7%</div>
+          <div class="data-card-label">Crescimento do Nordeste no 1&ordm; semestre de 2026 &mdash; l&iacute;der nacional</div>
+          <div class="data-card-source">Fonte: Abrafati</div>
+        </div>
+      </div>
+
+      <div class="data-grid">
+        <div class="data-card">
+          <div class="data-card-value">9 L</div>
+          <div class="data-card-label">Consumo per capita de tintas no Brasil (pessoa/ano)</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">15+ L</div>
+          <div class="data-card-label">Consumo per capita em mercados maduros &mdash; espa&ccedil;o para crescimento</div>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <p>O Nordeste lidera o crescimento nacional no setor de tintas, com <strong>+11,7% no primeiro semestre de 2026</strong>. Com o consumo per capita brasileiro (9 litros) ainda distante dos mercados maduros (15+ litros), o potencial de expans&atilde;o &eacute; significativo &mdash; especialmente em regi&otilde;es com boom imobili&aacute;rio como o Oeste da Bahia.</p>
+      </div>
+
+      <div class="subsection-title" style="font-size:1rem; margin-top:24px;">Market Share &mdash; <em>Principais Fabricantes</em></div>
+
+      <div class="table-wrapper">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Grupo</th>
+              <th>Marcas</th>
+              <th>Market Share</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Sherwin-Williams</strong></td>
+              <td>Suvinil, Metalatex, Cor&amp;Ton</td>
+              <td class="highlight-cell">~45%</td>
+            </tr>
+            <tr>
+              <td><strong>AkzoNobel</strong></td>
+              <td>Coral, Coralit</td>
+              <td class="highlight-cell">~25%</td>
+            </tr>
+            <tr>
+              <td><strong>Outras</strong></td>
+              <td>Eucatex, Lukscolor, Iquine, Anjo, regionais</td>
+              <td class="highlight-cell">~30%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <ul class="content-list">
+        <li><strong>Suvinil</strong> &mdash; ~35% do mercado, l&iacute;der absoluta em tintas imobili&aacute;rias, com forte programa de relacionamento com pintores</li>
+        <li><strong>Coral</strong> &mdash; ~25% do mercado, famosa pela campanha &ldquo;Cor do Ano&rdquo; e forte presen&ccedil;a digital</li>
+        <li><strong>Sherwin-Williams</strong> &mdash; Grupo que engloba Suvinil, com portf&oacute;lio premium e industrial</li>
+        <li><strong>Eucatex</strong> &mdash; Tintas e pain&eacute;is, forte no interior e com pre&ccedil;os competitivos</li>
+        <li><strong>Lukscolor</strong> &mdash; Posicionamento custo-benef&iacute;cio, crescimento acelerado no Nordeste</li>
+        <li><strong>Iquine</strong> &mdash; Marca nordestina com forte penetra&ccedil;&atilde;o regional</li>
+        <li><strong>Anjo</strong> &mdash; Tintas automotivas, industriais e imobili&aacute;rias, forte no Sul e Sudeste</li>
+      </ul>
+    </div>
+
+    <!-- FERRAMENTAS E MARCENARIA -->
+    <div class="subsection">
+      <div class="subsection-title">Ferramentas e <em>Marcenaria</em></div>
+
+      <div class="data-grid">
+        <div class="data-card">
+          <div class="data-card-value">R$ 9+ bi</div>
+          <div class="data-card-label">Faturamento do setor de ferramentas no Brasil em 2025</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">245.174</div>
+          <div class="data-card-label">Marcenarias ativas no Brasil</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">+30,98%</div>
+          <div class="data-card-label">Crescimento do n&uacute;mero de marcenarias nos &uacute;ltimos 5 anos</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">US$ 82,05 bi</div>
+          <div class="data-card-label">Mercado global de ferramentas el&eacute;tricas em 2026</div>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <p>As ferramentas el&eacute;tricas representam <strong>62,45% da participa&ccedil;&atilde;o do mercado global</strong>, consolidando a migra&ccedil;&atilde;o das ferramentas manuais para as motorizadas e, mais recentemente, para as ferramentas a bateria (cordless). O crescimento de quase 31% nas marcenarias brasileiras em cinco anos reflete o aquecimento da constru&ccedil;&atilde;o civil e a demanda por m&oacute;veis planejados.</p>
+      </div>
+
+      <ul class="content-list">
+        <li><strong>Bosch</strong> &mdash; L&iacute;der global, portf&oacute;lio completo de ferramentas profissionais e amadores</li>
+        <li><strong>Makita</strong> &mdash; Refer&ecirc;ncia em ferramentas a bateria, forte entre profissionais</li>
+        <li><strong>Stanley Black &amp; Decker (DeWalt)</strong> &mdash; DeWalt para profissionais, Black+Decker para residencial</li>
+        <li><strong>Milwaukee</strong> &mdash; Premium profissional, crescimento acelerado no Brasil</li>
+        <li><strong>Vonder</strong> &mdash; Marca brasileira, posicionamento custo-benef&iacute;cio, forte no varejo</li>
+      </ul>
+    </div>
+
+    <!-- VAREJO MATERIAIS DE CONSTRUCAO -->
+    <div class="subsection">
+      <div class="subsection-title">Varejo de Materiais de <em>Constru&ccedil;&atilde;o</em></div>
+
+      <div class="data-grid">
+        <div class="data-card">
+          <div class="data-card-value">R$ 238,9 bi</div>
+          <div class="data-card-label">Faturamento total do varejo de materiais de constru&ccedil;&atilde;o em 2025</div>
+          <div class="data-card-source">Fonte: Anamaco</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">160.627</div>
+          <div class="data-card-label">Lojas de materiais de constru&ccedil;&atilde;o no Brasil</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">1,88%</div>
+          <div class="data-card-label">Representa&ccedil;&atilde;o do setor no PIB brasileiro</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">+2,9%</div>
+          <div class="data-card-label">Crescimento da constru&ccedil;&atilde;o civil no 1&ordm; trimestre de 2026</div>
+        </div>
+      </div>
+
+      <div class="data-grid">
+        <div class="data-card data-card-wide">
+          <div class="data-card-value">143.547 vagas</div>
+          <div class="data-card-label">Empregos formais gerados pela constru&ccedil;&atilde;o civil entre janeiro e abril de 2026 &mdash; 2&ordm; maior gerador de empregos do pa&iacute;s</div>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <p>O varejo de materiais de constru&ccedil;&atilde;o &eacute; um gigante de quase <strong>R$ 240 bilh&otilde;es</strong>, com mais de 160 mil lojas espalhadas pelo Brasil. A constru&ccedil;&atilde;o civil segue como motor econ&ocirc;mico, sendo o <strong>2&ordm; maior gerador de empregos formais</strong> do pa&iacute;s, com mais de 143 mil vagas criadas apenas no primeiro quadrimestre de 2026.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     SECAO 2: ECONOMIA DO OESTE DA BAHIA
+     ============================================================ -->
+<div class="container" id="economia">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-tag">Se&ccedil;&atilde;o 02</div>
+      <div class="section-title">Economia do <em>Oeste da Bahia</em></div>
+      <p class="section-subtitle">O boom econ&ocirc;mico do Oeste Baiano impulsiona diretamente os setores de constru&ccedil;&atilde;o civil, reforma e com&eacute;rcio local.</p>
+    </div>
+
+    <div class="data-grid">
+      <div class="data-card">
+        <div class="data-card-value">+2,7%</div>
+        <div class="data-card-label">Crescimento do PIB da Bahia em 2025</div>
+      </div>
+      <div class="data-card">
+        <div class="data-card-value">+10,3%</div>
+        <div class="data-card-label">Crescimento da agropecu&aacute;ria baiana em 2025</div>
+      </div>
+      <div class="data-card">
+        <div class="data-card-value">171.634</div>
+        <div class="data-card-label">Habitantes em Barreiras &mdash; capital do Oeste Baiano</div>
+      </div>
+      <div class="data-card">
+        <div class="data-card-value">+40%</div>
+        <div class="data-card-label">Aumento nos empregos da constru&ccedil;&atilde;o civil em Barreiras nos &uacute;ltimos 4 anos</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">Lu&iacute;s Eduardo Magalh&atilde;es &mdash; <em>Motor Econ&ocirc;mico</em></div>
+
+      <div class="data-grid">
+        <div class="data-card">
+          <div class="data-card-value">118.382</div>
+          <div class="data-card-label">Habitantes em Lu&iacute;s Eduardo Magalh&atilde;es</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">+1,5%/ano</div>
+          <div class="data-card-label">Maior taxa de crescimento populacional do estado</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">R$ 8,8 bi</div>
+          <div class="data-card-label">PIB de Lu&iacute;s Eduardo Magalh&atilde;es</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">O Efeito <em>Agropecu&aacute;ria</em> no Com&eacute;rcio</div>
+
+      <ul class="content-list">
+        <li><strong>S&atilde;o Desid&eacute;rio</strong> &mdash; Maior produtor de algod&atilde;o do Brasil, com riqueza que transborda para todo o com&eacute;rcio regional</li>
+        <li><strong>Ciclo virtuoso</strong> &mdash; O dinheiro do agroneg&oacute;cio circula no com&eacute;rcio local e impulsiona diretamente a constru&ccedil;&atilde;o civil, reformas e investimentos imobili&aacute;rios</li>
+        <li><strong>Programa Minha Casa, Minha Vida</strong> &mdash; 108,9 mil unidades habitacionais na Bahia, com investimento de R$ 13,64 bilh&otilde;es, acelerando a demanda por materiais de constru&ccedil;&atilde;o</li>
+        <li><strong>Boom imobili&aacute;rio em Barreiras</strong> &mdash; Empreendimentos como Master Plan, Brisas Bali, Shopping Encontro das &Aacute;guas e Century 21 transformam a paisagem urbana</li>
+        <li><strong>Constru&ccedil;&atilde;o civil regional</strong> &mdash; Empregos no setor cresceram 40% em 4 anos, refletindo a expans&atilde;o imobili&aacute;ria</li>
+      </ul>
+
+      <div class="highlight-box">
+        <p>O Oeste da Bahia vive um momento &uacute;nico: a riqueza do <strong>agroneg&oacute;cio</strong> encontra a <strong>expans&atilde;o urbana</strong>. Cada safra recorde se transforma em novas constru&ccedil;&otilde;es, reformas e investimentos imobili&aacute;rios. Para uma loja de materiais el&eacute;tricos, tintas e ferramentas, este cen&aacute;rio representa uma janela de oportunidade rara &mdash; demanda crescente, renda em alta e concorr&ecirc;ncia ainda fr&aacute;gil digitalmente.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     SECAO 3: PERFIL DO CONSUMIDOR
+     ============================================================ -->
+<div class="container" id="consumidor">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-tag">Se&ccedil;&atilde;o 03</div>
+      <div class="section-title">Perfil do <em>Consumidor</em></div>
+      <p class="section-subtitle">Quem compra materiais el&eacute;tricos, tintas e ferramentas &mdash; dados da Popai Brasil e Anamaco sobre comportamento de compra.</p>
+    </div>
+
+    <!-- DEMOGRAFICO -->
+    <div class="subsection">
+      <div class="subsection-title">Perfil <em>Demogr&aacute;fico</em></div>
+
+      <div class="data-grid">
+        <div class="data-card">
+          <div class="data-card-value">63%</div>
+          <div class="data-card-label">Masculino</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">37%</div>
+          <div class="data-card-label">Feminino</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">52%</div>
+          <div class="data-card-label">Classe B</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">31%</div>
+          <div class="data-card-label">Classe C</div>
+        </div>
+      </div>
+
+      <div class="data-grid">
+        <div class="data-card">
+          <div class="data-card-value">14%</div>
+          <div class="data-card-label">Classe A</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">R$ 110</div>
+          <div class="data-card-label">Ticket m&eacute;dio &mdash; consumidor final</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">R$ 300&ndash;1.500</div>
+          <div class="data-card-label">Ticket m&eacute;dio &mdash; profissional (eletricista, pintor, marceneiro)</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">50&ndash;70%</div>
+          <div class="data-card-label">Faturamento que vem de profissionais</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPORTAMENTO DE COMPRA -->
+    <div class="subsection">
+      <div class="subsection-title">Comportamento de <em>Compra</em></div>
+
+      <div class="data-grid">
+        <div class="data-card">
+          <div class="data-card-value">71%</div>
+          <div class="data-card-label">Decidem a marca no ponto de venda</div>
+          <div class="data-card-source">Fonte: Popai Brasil</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">69%</div>
+          <div class="data-card-label">Pedem aux&iacute;lio do vendedor para escolher</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">53%</div>
+          <div class="data-card-label">Pesquisam online antes de ir &agrave; loja</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">13%</div>
+          <div class="data-card-label">Compram efetivamente pela internet</div>
+        </div>
+      </div>
+
+      <div class="data-grid">
+        <div class="data-card">
+          <div class="data-card-value">67%</div>
+          <div class="data-card-label">Pagam em dinheiro</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">97%</div>
+          <div class="data-card-label">Das lojas usam WhatsApp como canal de vendas</div>
+          <div class="data-card-source">Fonte: Anamaco</div>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <p>Dado crucial: <strong>71% decidem a marca no ponto de venda</strong> e <strong>69% pedem ajuda ao vendedor</strong>. Isso significa que a equipe de vendas &eacute; o ativo mais valioso da loja. Ao mesmo tempo, 53% pesquisam online antes, mas apenas 13% compram online &mdash; a loja f&iacute;sica continua sendo o destino final, e quem aparece na pesquisa digital ganha a visita.</p>
+      </div>
+    </div>
+
+    <!-- CRITERIOS DE ESCOLHA -->
+    <div class="subsection">
+      <div class="subsection-title">Crit&eacute;rios de <em>Escolha da Loja</em></div>
+
+      <div class="table-wrapper">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Crit&eacute;rio</th>
+              <th>Porcentagem</th>
+              <th>Implica&ccedil;&atilde;o</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Localiza&ccedil;&atilde;o</strong></td>
+              <td class="highlight-cell">57%</td>
+              <td>Proximidade &eacute; o fator n&ordm; 1 &mdash; o cliente vai onde &eacute; mais f&aacute;cil</td>
+            </tr>
+            <tr>
+              <td><strong>Pre&ccedil;o</strong></td>
+              <td class="highlight-cell">48%</td>
+              <td>Competi&ccedil;&atilde;o por pre&ccedil;o &eacute; forte, mas n&atilde;o dominante</td>
+            </tr>
+            <tr>
+              <td><strong>Variedade</strong></td>
+              <td class="highlight-cell">38%</td>
+              <td>Ter tudo no mesmo lugar evita que o cliente precise ir a outra loja</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- JORNADA DIGITAL -->
+    <div class="subsection">
+      <div class="subsection-title">Jornada <em>Digital</em> do Consumidor</div>
+
+      <div class="table-wrapper">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Canal</th>
+              <th>Porcentagem</th>
+              <th>Papel na Jornada</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Lojas f&iacute;sicas</strong></td>
+              <td class="highlight-cell">69,7%</td>
+              <td>Destino final da compra &mdash; experi&ecirc;ncia t&aacute;til</td>
+            </tr>
+            <tr>
+              <td><strong>Sites</strong></td>
+              <td class="highlight-cell">42,4%</td>
+              <td>Pesquisa de pre&ccedil;o e disponibilidade</td>
+            </tr>
+            <tr>
+              <td><strong>YouTube</strong></td>
+              <td class="highlight-cell">35,6%</td>
+              <td>Tutoriais, compara&ccedil;&otilde;es e &ldquo;como fazer&rdquo;</td>
+            </tr>
+            <tr>
+              <td><strong>Instagram</strong></td>
+              <td class="highlight-cell">26,6%</td>
+              <td>Inspira&ccedil;&atilde;o, antes/depois, novidades</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- COMPORTAMENTO INTERIOR -->
+    <div class="subsection">
+      <div class="subsection-title">O Consumidor do <em>Interior</em></div>
+
+      <ul class="content-list">
+        <li><strong>Boca a boca &eacute; o algoritmo do interior</strong> &mdash; A indica&ccedil;&atilde;o de vizinhos, parentes e profissionais de confian&ccedil;a tem mais peso do que qualquer an&uacute;ncio</li>
+        <li><strong>Rela&ccedil;&atilde;o de confian&ccedil;a pessoal</strong> &mdash; O cliente conhece o dono da loja pelo nome, e essa proximidade &eacute; decisiva na fideliza&ccedil;&atilde;o</li>
+        <li><strong>Fiado como pr&aacute;tica cultural</strong> &mdash; O cr&eacute;dito informal ainda &eacute; uma realidade, especialmente com profissionais (eletricistas, pintores, marceneiros)</li>
+        <li><strong>S&aacute;bado de manh&atilde;</strong> &mdash; Pico absoluto de vendas. O consumidor final e o profissional concentram compras no s&aacute;bado, exigindo equipe refor&ccedil;ada e estoque preparado</li>
+        <li><strong>Fidelidade geogr&aacute;fica</strong> &mdash; Mudan&ccedil;as de loja acontecem por pre&ccedil;o, falta de produto ou mau atendimento &mdash; raramente por marketing</li>
+      </ul>
+
+      <div class="highlight-box">
+        <p>No interior, a <strong>confian&ccedil;a pessoal</strong> supera qualquer estrat&eacute;gia de marketing. Quem conquista o profissional (eletricista, pintor, marceneiro) conquista o fluxo constante &mdash; eles representam <strong>50 a 70% do faturamento</strong> e trazem seus clientes junto.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     SECAO 4: ANALISE DA CONCORRENCIA
+     ============================================================ -->
+<div class="container" id="concorrencia">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-tag">Se&ccedil;&atilde;o 04</div>
+      <div class="section-title">An&aacute;lise da <em>Concorr&ecirc;ncia</em></div>
+      <p class="section-subtitle">20 concorrentes mapeados na regi&atilde;o de Barreiras e Lu&iacute;s Eduardo Magalh&atilde;es. An&aacute;lise detalhada dos 5 principais e ranking de presen&ccedil;a digital.</p>
+    </div>
+
+    <!-- CONCORRENTE 1 -->
+    <div class="competitor-card">
+      <div class="competitor-header">
+        <div style="display:flex; align-items:center;">
+          <span class="competitor-rank">#1</span>
+          <div>
+            <div class="competitor-name">JK <em>Home Center</em></div>
+          </div>
+        </div>
+        <span class="badge badge-alto">Alto &mdash; Ameaça</span>
+      </div>
+      <div class="competitor-meta">
+        <div class="competitor-meta-item"><strong>Segmento:</strong> Home center generalista</div>
+        <div class="competitor-meta-item"><strong>Localiza&ccedil;&atilde;o:</strong> 3 lojas (Barreiras, LEM, Roda Velha)</div>
+        <div class="competitor-meta-item"><strong>Tempo:</strong> 25+ anos de mercado</div>
+        <div class="competitor-meta-item"><strong>Instagram:</strong> 30.600 seguidores</div>
+        <div class="competitor-meta-item"><strong>Site:</strong> N&atilde;o possui</div>
+      </div>
+      <div class="competitor-details">
+        <div class="competitor-detail-box">
+          <h4>Diferenciais</h4>
+          <p>Maior audi&ecirc;ncia digital da regi&atilde;o. Parceria com Banco do Brasil para financiamento. Tr&ecirc;s unidades cobrindo Barreiras, LEM e Roda Velha. Mix amplo de produtos para constru&ccedil;&atilde;o, reforma e acabamento.</p>
+        </div>
+        <div class="competitor-detail-box">
+          <h4>Pontos Fracos</h4>
+          <p>N&atilde;o possui site pr&oacute;prio nem e-commerce. Generalista &mdash; n&atilde;o tem profundidade em nenhum segmento espec&iacute;fico. Atendimento t&eacute;cnico limitado por ser home center. Conte&uacute;do digital gen&eacute;rico, sem educa&ccedil;&atilde;o t&eacute;cnica.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONCORRENTE 2 -->
+    <div class="competitor-card">
+      <div class="competitor-header">
+        <div style="display:flex; align-items:center;">
+          <span class="competitor-rank">#2</span>
+          <div>
+            <div class="competitor-name"><em>Eletroluz</em></div>
+          </div>
+        </div>
+        <span class="badge badge-alto">Alto &mdash; Ameaça</span>
+      </div>
+      <div class="competitor-meta">
+        <div class="competitor-meta-item"><strong>Segmento:</strong> Materiais el&eacute;tricos + energia solar</div>
+        <div class="competitor-meta-item"><strong>Localiza&ccedil;&atilde;o:</strong> Barreiras</div>
+        <div class="competitor-meta-item"><strong>Tempo:</strong> 48 anos de mercado</div>
+        <div class="competitor-meta-item"><strong>Instagram:</strong> 6.846 seguidores</div>
+        <div class="competitor-meta-item"><strong>Site:</strong> N&atilde;o possui</div>
+      </div>
+      <div class="competitor-details">
+        <div class="competitor-detail-box">
+          <h4>Diferenciais</h4>
+          <p>Mais antigo do segmento el&eacute;trico na regi&atilde;o (48 anos). Instagram muito ativo com conte&uacute;do frequente. J&aacute; atua com energia solar, antecipando tend&ecirc;ncia. Reconhecimento de marca consolidado.</p>
+        </div>
+        <div class="competitor-detail-box">
+          <h4>Pontos Fracos</h4>
+          <p>Sem site ou e-commerce. Focado apenas em materiais el&eacute;tricos, sem tintas ou marcenaria. Presen&ccedil;a apenas em Barreiras. Comunica&ccedil;&atilde;o digital focada em produto, pouco conte&uacute;do educativo.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONCORRENTE 3 -->
+    <div class="competitor-card">
+      <div class="competitor-header">
+        <div style="display:flex; align-items:center;">
+          <span class="competitor-rank">#3</span>
+          <div>
+            <div class="competitor-name">Casa do <em>Marceneiro</em></div>
+          </div>
+        </div>
+        <span class="badge badge-alto">Alto &mdash; Ameaça</span>
+      </div>
+      <div class="competitor-meta">
+        <div class="competitor-meta-item"><strong>Segmento:</strong> Marcenaria e ferramentas</div>
+        <div class="competitor-meta-item"><strong>Localiza&ccedil;&atilde;o:</strong> 2 lojas (Barreiras + LEM)</div>
+        <div class="competitor-meta-item"><strong>Tempo:</strong> 26 anos de mercado</div>
+        <div class="competitor-meta-item"><strong>Instagram:</strong> 5.877 seguidores</div>
+        <div class="competitor-meta-item"><strong>Site:</strong> Sim (cat&aacute;logo)</div>
+      </div>
+      <div class="competitor-details">
+        <div class="competitor-detail-box">
+          <h4>Diferenciais</h4>
+          <p>Dominante em marcenaria na regi&atilde;o. 14 marcas parceiras (H&auml;fele, Makita, Sayerlack, entre outras). Duas unidades (Barreiras e LEM). Site com cat&aacute;logo de produtos. Forte relacionamento com marceneiros profissionais.</p>
+        </div>
+        <div class="competitor-detail-box">
+          <h4>Pontos Fracos</h4>
+          <p>Focado apenas em marcenaria &mdash; n&atilde;o vende tintas nem materiais el&eacute;tricos. Site sem e-commerce real (apenas cat&aacute;logo). N&atilde;o produz conte&uacute;do educativo para YouTube. Comunica&ccedil;&atilde;o visual datada.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONCORRENTE 4 -->
+    <div class="competitor-card">
+      <div class="competitor-header">
+        <div style="display:flex; align-items:center;">
+          <span class="competitor-rank">#4</span>
+          <div>
+            <div class="competitor-name">El&eacute;trica <em>L&iacute;der</em></div>
+          </div>
+        </div>
+        <span class="badge badge-alto">Alto &mdash; Ameaça</span>
+      </div>
+      <div class="competitor-meta">
+        <div class="competitor-meta-item"><strong>Segmento:</strong> Materiais el&eacute;tricos + ilumina&ccedil;&atilde;o</div>
+        <div class="competitor-meta-item"><strong>Localiza&ccedil;&atilde;o:</strong> Barreiras</div>
+        <div class="competitor-meta-item"><strong>Instagram:</strong> 1.610 seguidores</div>
+        <div class="competitor-meta-item"><strong>Site:</strong> Sim (com e-commerce e pre&ccedil;os)</div>
+      </div>
+      <div class="competitor-details">
+        <div class="competitor-detail-box">
+          <h4>Diferenciais</h4>
+          <p>Concorrente mais digitalizado: site com e-commerce funcional e pre&ccedil;os vis&iacute;veis. Marcas premium no portf&oacute;lio (Tramontina, Siemens, Schneider Electric). Boa organiza&ccedil;&atilde;o de cat&aacute;logo online.</p>
+        </div>
+        <div class="competitor-detail-box">
+          <h4>Pontos Fracos</h4>
+          <p>Audi&ecirc;ncia no Instagram ainda pequena (1.610). Apenas uma unidade. Sem presen&ccedil;a em LEM. E-commerce de alcance limitado. N&atilde;o atua com tintas nem marcenaria.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONCORRENTE 5 -->
+    <div class="competitor-card">
+      <div class="competitor-header">
+        <div style="display:flex; align-items:center;">
+          <span class="competitor-rank">#5</span>
+          <div>
+            <div class="competitor-name"><em>Aquacores</em> Tintas</div>
+          </div>
+        </div>
+        <span class="badge badge-alto">Alto &mdash; Ameaça</span>
+      </div>
+      <div class="competitor-meta">
+        <div class="competitor-meta-item"><strong>Segmento:</strong> Tintas (imobili&aacute;ria, industrial, automotiva, agr&iacute;cola)</div>
+        <div class="competitor-meta-item"><strong>Localiza&ccedil;&atilde;o:</strong> 2 lojas (Barreiras + LEM)</div>
+        <div class="competitor-meta-item"><strong>Instagram:</strong> 676 seguidores</div>
+        <div class="competitor-meta-item"><strong>Site:</strong> Sim</div>
+      </div>
+      <div class="competitor-details">
+        <div class="competitor-detail-box">
+          <h4>Diferenciais</h4>
+          <p>Loja mais completa em tintas da regi&atilde;o: imobili&aacute;ria, industrial, automotiva e agr&iacute;cola. Duas unidades (Barreiras e LEM). Possui site pr&oacute;prio. Portf&oacute;lio diversificado para diferentes aplica&ccedil;&otilde;es.</p>
+        </div>
+        <div class="competitor-detail-box">
+          <h4>Pontos Fracos</h4>
+          <p>Audi&ecirc;ncia digital muito baixa (676 seguidores). Sem e-commerce funcional. Foco apenas em tintas &mdash; sem materiais el&eacute;tricos ou ferramentas. Pouca produ&ccedil;&atilde;o de conte&uacute;do.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- OUTROS CONCORRENTES -->
+    <div class="subsection" style="margin-top:40px;">
+      <div class="subsection-title">Outros Concorrentes <em>Relevantes</em></div>
+
+      <div class="table-wrapper">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Empresa</th>
+              <th>Segmento</th>
+              <th>Tempo</th>
+              <th>Destaque</th>
+              <th>N&iacute;vel</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Marcefix</strong></td>
+              <td>Marcenaria</td>
+              <td>38 anos</td>
+              <td>Mais antigo em marcenaria, sem presen&ccedil;a digital</td>
+              <td><span class="badge badge-medio">M&eacute;dio</span></td>
+            </tr>
+            <tr>
+              <td><strong>Arco &Iacute;ris Tintas</strong></td>
+              <td>Tintas</td>
+              <td>30 anos</td>
+              <td>Tradicional em tintas, sem presen&ccedil;a digital</td>
+              <td><span class="badge badge-medio">M&eacute;dio</span></td>
+            </tr>
+            <tr>
+              <td><strong>Ferragista Oeste</strong></td>
+              <td>Ferragens e ferramentas</td>
+              <td>5 anos (2021)</td>
+              <td>Mix similar, empresa nova no mercado</td>
+              <td><span class="badge badge-medio">M&eacute;dio</span></td>
+            </tr>
+            <tr>
+              <td><strong>Elo&iacute; Tintas</strong></td>
+              <td>Tintas</td>
+              <td>&mdash;</td>
+              <td>LEM, e-commerce com pre&ccedil;os vis&iacute;veis</td>
+              <td><span class="badge badge-medio">M&eacute;dio</span></td>
+            </tr>
+            <tr>
+              <td><strong>Madeireira Azevedo</strong></td>
+              <td>Madeiras e marcenaria</td>
+              <td>21 anos</td>
+              <td>Financiamento em at&eacute; 24x, p&uacute;blico profissional</td>
+              <td><span class="badge badge-medio">M&eacute;dio</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- RANKING PRESENCA DIGITAL -->
+    <div class="subsection">
+      <div class="subsection-title">Ranking de Presen&ccedil;a <em>Digital</em></div>
+
+      <div class="table-wrapper">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th class="text-center">Pos.</th>
+              <th>Empresa</th>
+              <th class="text-center">Seguidores Instagram</th>
+              <th class="text-center">Site</th>
+              <th class="text-center">E-commerce</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-center highlight-cell">1&ordm;</td>
+              <td><strong>JK Home Center</strong></td>
+              <td class="text-center highlight-cell">30.600</td>
+              <td class="text-center"><span class="badge badge-nao">N&atilde;o</span></td>
+              <td class="text-center"><span class="badge badge-nao">N&atilde;o</span></td>
+            </tr>
+            <tr>
+              <td class="text-center highlight-cell">2&ordm;</td>
+              <td><strong>Eletroluz</strong></td>
+              <td class="text-center highlight-cell">6.846</td>
+              <td class="text-center"><span class="badge badge-nao">N&atilde;o</span></td>
+              <td class="text-center"><span class="badge badge-nao">N&atilde;o</span></td>
+            </tr>
+            <tr>
+              <td class="text-center highlight-cell">3&ordm;</td>
+              <td><strong>Casa do Marceneiro</strong></td>
+              <td class="text-center highlight-cell">5.877</td>
+              <td class="text-center"><span class="badge badge-sim">Sim</span></td>
+              <td class="text-center"><span class="badge badge-nao">Cat&aacute;logo</span></td>
+            </tr>
+            <tr>
+              <td class="text-center highlight-cell">4&ordm;</td>
+              <td><strong>El&eacute;trica L&iacute;der</strong></td>
+              <td class="text-center highlight-cell">1.610</td>
+              <td class="text-center"><span class="badge badge-sim">Sim</span></td>
+              <td class="text-center"><span class="badge badge-sim">Sim</span></td>
+            </tr>
+            <tr>
+              <td class="text-center highlight-cell">5&ordm;</td>
+              <td><strong>Aquacores Tintas</strong></td>
+              <td class="text-center highlight-cell">676</td>
+              <td class="text-center"><span class="badge badge-sim">Sim</span></td>
+              <td class="text-center"><span class="badge badge-nao">N&atilde;o</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="highlight-box">
+        <p>Insight estrat&eacute;gico: o l&iacute;der em audi&ecirc;ncia (JK Home Center, 30.600 seguidores) <strong>n&atilde;o tem site nem e-commerce</strong>. O &uacute;nico com e-commerce funcional (El&eacute;trica L&iacute;der) tem apenas 1.610 seguidores. <strong>Nenhum concorrente combina audi&ecirc;ncia forte + e-commerce + conte&uacute;do educativo</strong>. Este &eacute; o espa&ccedil;o onde Pereira Luz e Cor pode dominar.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     SECAO 5: TENDENCIAS DO MERCADO
+     ============================================================ -->
+<div class="container" id="tendencias">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-tag">Se&ccedil;&atilde;o 05</div>
+      <div class="section-title">Tend&ecirc;ncias do <em>Mercado</em></div>
+      <p class="section-subtitle">As grandes movimenta&ccedil;&otilde;es nacionais e internacionais que moldam o futuro do varejo de materiais el&eacute;tricos, tintas e ferramentas.</p>
+    </div>
+
+    <!-- TENDENCIAS NACIONAIS -->
+    <div class="subsection">
+      <div class="subsection-title">Tend&ecirc;ncias <em>Nacionais</em></div>
+
+      <div class="trend-grid">
+        <div class="trend-card">
+          <div class="trend-card-tag">Energia</div>
+          <h4>Energia Solar <em>Residencial</em></h4>
+          <p>Bahia &eacute; o 3&ordm; estado em instala&ccedil;&otilde;es (62 mil nos &uacute;ltimos 12 meses). Nordeste ainda abaixo da m&eacute;dia nacional &mdash; potencial enorme de crescimento na regi&atilde;o.</p>
+          <div class="trend-value">62 mil instala&ccedil;&otilde;es/ano</div>
+        </div>
+
+        <div class="trend-card">
+          <div class="trend-card-tag">Tecnologia</div>
+          <h4>Automa&ccedil;&atilde;o <em>Residencial</em></h4>
+          <p>Brasil cresce 30% ao ano em automa&ccedil;&atilde;o residencial. Mercado projetado em US$ 2,41 bilh&otilde;es em 2026. Interruptores inteligentes, sensores e assistentes de voz.</p>
+          <div class="trend-value">+30%/ano</div>
+        </div>
+
+        <div class="trend-card">
+          <div class="trend-card-tag">Ilumina&ccedil;&atilde;o</div>
+          <h4>LED <em>Inteligente</em></h4>
+          <p>Mercado global de ilumina&ccedil;&atilde;o inteligente: US$ 27,52 bilh&otilde;es, com crescimento de 19,77% ao ano (CAGR). L&acirc;mpadas WiFi, fitas LED RGB e sistemas de cena.</p>
+          <div class="trend-value">CAGR 19,77%</div>
+        </div>
+
+        <div class="trend-card">
+          <div class="trend-card-tag">Ferramentas</div>
+          <h4>Ferramentas a <em>Bateria</em></h4>
+          <p>Ferramentas cordless dominam o mercado. Profissionais migram de ferramentas com fio para plataformas a bateria (Bosch 18V, Makita LXT, DeWalt 20V MAX).</p>
+          <div class="trend-value">62,45% do mercado</div>
+        </div>
+
+        <div class="trend-card">
+          <div class="trend-card-tag">Sustentabilidade</div>
+          <h4>Tintas <em>Ecol&oacute;gicas</em></h4>
+          <p>Tintas de baixo VOC (compostos org&acirc;nicos vol&aacute;teis) e base &aacute;gua ganham espa&ccedil;o. Consumidor mais consciente busca produtos menos t&oacute;xicos.</p>
+          <div class="trend-value">Baixo VOC</div>
+        </div>
+
+        <div class="trend-card">
+          <div class="trend-card-tag">Comportamento</div>
+          <h4>Cultura <em>DIY</em></h4>
+          <p>73% dos propriet&aacute;rios fazem projetos por conta pr&oacute;pria. Tutoriais no YouTube e Instagram impulsionam a confian&ccedil;a do consumidor para &ldquo;fa&ccedil;a voc&ecirc; mesmo&rdquo;.</p>
+          <div class="trend-value">73% dos propriet&aacute;rios</div>
+        </div>
+
+        <div class="trend-card">
+          <div class="trend-card-tag">Digital</div>
+          <h4>Digitaliza&ccedil;&atilde;o da <em>Jornada</em></h4>
+          <p>53% pesquisam online antes de comprar. WhatsApp como canal de vendas em 97% das lojas. A presen&ccedil;a digital deixou de ser opcional.</p>
+          <div class="trend-value">97% usam WhatsApp</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TENDENCIAS INTERNACIONAIS -->
+    <div class="subsection">
+      <div class="subsection-title">Tend&ecirc;ncias <em>Internacionais</em></div>
+
+      <div class="trend-grid">
+        <div class="trend-card">
+          <div class="trend-card-tag">Home Improvement</div>
+          <h4>Mercado Global de <em>Reforma</em></h4>
+          <p>Mercado global de Home Improvement: de US$ 945,86 bilh&otilde;es para US$ 1.354 bilh&otilde;es at&eacute; 2034. Crescimento impulsionado por envelhecimento de im&oacute;veis e valoriza&ccedil;&atilde;o do lar.</p>
+          <div class="trend-value">US$ 1,35 tri (2034)</div>
+        </div>
+
+        <div class="trend-card">
+          <div class="trend-card-tag">DIY Global</div>
+          <h4>Fa&ccedil;a Voc&ecirc; <em>Mesmo</em></h4>
+          <p>Mercado global de DIY: de US$ 837 bilh&otilde;es para US$ 1.181 bilh&otilde;es at&eacute; 2035. Conte&uacute;do educativo e kits prontos impulsionam o crescimento.</p>
+          <div class="trend-value">US$ 1,18 tri (2035)</div>
+        </div>
+
+        <div class="trend-card">
+          <div class="trend-card-tag">Smart Home</div>
+          <h4>Ilumina&ccedil;&atilde;o <em>Inteligente</em></h4>
+          <p>Smart lighting global: de US$ 27,52 bilh&otilde;es para US$ 67,83 bilh&otilde;es at&eacute; 2031. Integra&ccedil;&atilde;o com assistentes de voz e automa&ccedil;&atilde;o residencial.</p>
+          <div class="trend-value">US$ 67,83 bi (2031)</div>
+        </div>
+
+        <div class="trend-card">
+          <div class="trend-card-tag">Varejo</div>
+          <h4>Omnichannel &mdash; <em>F&iacute;sico + Digital</em></h4>
+          <p>Nos EUA, 84% das vendas de materiais de constru&ccedil;&atilde;o ainda acontecem na loja f&iacute;sica. O digital &eacute; canal de pesquisa, n&atilde;o de compra final.</p>
+          <div class="trend-value">84% em loja f&iacute;sica</div>
+        </div>
+
+        <div class="trend-card">
+          <div class="trend-card-tag">Sustentabilidade</div>
+          <h4>Tintas <em>Sustent&aacute;veis</em></h4>
+          <p>Mudan&ccedil;a massiva global para tintas low-VOC e base &aacute;gua. Regulamenta&ccedil;&otilde;es ambientais cada vez mais r&iacute;gidas. Consumidor paga mais por produtos ecologicamente corretos.</p>
+          <div class="trend-value">Low-VOC e base &aacute;gua</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     SECAO 6: REFERENCIAS NACIONAIS E INTERNACIONAIS
+     ============================================================ -->
+<div class="container" id="referencias">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-tag">Se&ccedil;&atilde;o 06</div>
+      <div class="section-title">Refer&ecirc;ncias Nacionais e <em>Internacionais</em></div>
+      <p class="section-subtitle">As empresas que definem o padr&atilde;o de excel&ecirc;ncia no varejo de materiais de constru&ccedil;&atilde;o &mdash; e o que podemos aprender com cada uma.</p>
+    </div>
+
+    <!-- REFERENCIAS NACIONAIS -->
+    <div class="subsection">
+      <div class="subsection-title">Refer&ecirc;ncias <em>Nacionais</em></div>
+
+      <div class="ref-grid">
+        <div class="ref-card">
+          <div class="ref-card-name">Leroy <em>Merlin</em></div>
+          <div class="ref-card-stat">2M seguidores | R$ 8,97 bi faturamento</div>
+          <p>Maior home center do Brasil. Conte&uacute;do educativo massivo, workshops presenciais, programa de fidelidade. Refer&ecirc;ncia em experi&ecirc;ncia do cliente.</p>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-card-name">Tintas <em>MC</em></div>
+          <div class="ref-card-stat">130+ lojas especializadas</div>
+          <p>Maior rede de lojas de tintas do Brasil. Modelo franquia com padroniza&ccedil;&atilde;o visual. Atendimento t&eacute;cnico especializado em cores e aplica&ccedil;&otilde;es.</p>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-card-name"><em>Suvinil</em></div>
+          <div class="ref-card-stat">35% market share</div>
+          <p>L&iacute;der absoluta em tintas imobili&aacute;rias. Programa @pintouduvida_suvinil para pintores profissionais. Comunidade que valoriza o profissional, n&atilde;o apenas o produto.</p>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-card-name"><em>Coral</em></div>
+          <div class="ref-card-stat">611K seguidores no Instagram</div>
+          <p>Campanha &ldquo;Cor do Ano&rdquo; com alcance nacional. Conte&uacute;do inspiracional focado em transforma&ccedil;&atilde;o visual. Programa &ldquo;Fortalece o Pintor&rdquo; com capacita&ccedil;&atilde;o.</p>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-card-name">Leo <em>Madeiras</em></div>
+          <div class="ref-card-stat">156K seguidores | #TamoJuntoNaMarcenaria</div>
+          <p>L&iacute;der em madeiras para marcenaria. Hashtag #TamoJuntoNaMarcenaria como movimento comunit&aacute;rio. Conte&uacute;do que celebra o marceneiro como artista.</p>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-card-name"><em>Bosch</em></div>
+          <div class="ref-card-stat">376K seguidores</div>
+          <p>Refer&ecirc;ncia em conte&uacute;do t&eacute;cnico para profissionais. Tutoriais de alta qualidade. Demonstra&ccedil;&atilde;o de produtos com foco no resultado, n&atilde;o na especifica&ccedil;&atilde;o.</p>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-card-name"><em>DeWalt</em></div>
+          <div class="ref-card-stat">392K seguidores</div>
+          <p>Posicionamento premium profissional. Conte&uacute;do de obra e canteiro. Identidade visual amarela iconizan o reconhecimento instant&acirc;neo da marca.</p>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-card-name"><em>Stanley</em></div>
+          <div class="ref-card-stat">220K | #AMarcaDoProfissional</div>
+          <p>Hashtag #AMarcaDoProfissional como posicionamento de marca. Conte&uacute;do que coloca o profissional como protagonista, nunca o produto.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- REFERENCIAS INTERNACIONAIS -->
+    <div class="subsection">
+      <div class="subsection-title">Refer&ecirc;ncias <em>Internacionais</em></div>
+
+      <div class="ref-grid">
+        <div class="ref-card">
+          <div class="ref-card-name">Home <em>Depot</em></div>
+          <div class="ref-card-stat">EUA &mdash; Maior home center do mundo</div>
+          <p>Creator Portal para conte&uacute;do UGC (gerado pelo usu&aacute;rio). Workshops presenciais de DIY. Modelo &ldquo;compre online, retire na loja&rdquo;. Investimento massivo em experi&ecirc;ncia.</p>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-card-name"><em>Lowe&apos;s</em></div>
+          <div class="ref-card-stat">EUA &mdash; &ldquo;Made in a Minute&rdquo; 5,7M views</div>
+          <p>S&eacute;rie &ldquo;Made in a Minute&rdquo; com micro-criadores locais. Tutoriais r&aacute;pidos com foco em resultado. Parcerias com influenciadores regionais, n&atilde;o celebridades.</p>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-card-name">B&amp;<em>Q</em></div>
+          <div class="ref-card-stat">Reino Unido &mdash; &ldquo;Prices Nailed&rdquo;</div>
+          <p>Campanha &ldquo;Prices Nailed&rdquo;: pre&ccedil;o justo sem ser barateiro. Posicionamento que valoriza qualidade e acessibilidade simultaneamente. Modelo para varejo de interior.</p>
+        </div>
+
+        <div class="ref-card">
+          <div class="ref-card-name"><em>Bunnings</em></div>
+          <div class="ref-card-stat">Austr&aacute;lia &mdash; 77 mil atividades comunit&aacute;rias/ano</div>
+          <p>77 mil atividades comunit&aacute;rias por ano. Workshops gratuitos para adultos e crian&ccedil;as. Famoso &ldquo;sausage sizzle&rdquo; (churrasco comunit&aacute;rio). A loja como centro da comunidade.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10 APRENDIZADOS -->
+    <div class="subsection">
+      <div class="subsection-title">10 Aprendizados <em>Fundamentais</em></div>
+
+      <ol class="numbered-list">
+        <li><strong>Conte&uacute;do educativo &eacute; a estrat&eacute;gia n&ordm; 1</strong> &mdash; As empresas que dominam seus mercados investem em ensinar, n&atilde;o apenas em vender. Tutoriais, dicas e &ldquo;como fazer&rdquo; geram confian&ccedil;a e atraem clientes organicamente.</li>
+        <li><strong>Comunidade local &eacute; ouro</strong> &mdash; Bunnings prova que transformar a loja em centro comunit&aacute;rio cria v&iacute;nculo emocional imposs&iacute;vel de copiar. Workshops, eventos e parcerias locais constroem lealdade.</li>
+        <li><strong>O profissional &eacute; o her&oacute;i, n&atilde;o o produto</strong> &mdash; Suvinil, Coral, Stanley e DeWalt posicionam o eletricista, o pintor e o marceneiro como protagonistas. O produto &eacute; o instrumento do her&oacute;i.</li>
+        <li><strong>Especializa&ccedil;&atilde;o gera autoridade</strong> &mdash; Lojas que se posicionam como especialistas em um segmento (tintas, el&eacute;trica, marcenaria) conquistam confian&ccedil;a superior &agrave;s generalistas.</li>
+        <li><strong>WhatsApp &eacute; o canal do varejo regional</strong> &mdash; 97% das lojas j&aacute; usam. Mas usar bem &mdash; com cat&aacute;logo, atendimento r&aacute;pido e listas de transmiss&atilde;o segmentadas &mdash; &eacute; o diferencial.</li>
+        <li><strong>V&iacute;deos curtos vendem</strong> &mdash; Lowe&apos;s prova com &ldquo;Made in a Minute&rdquo; (5,7M views). Reels de 30 segundos mostrando o produto em uso convertem mais do que cat&aacute;logos est&aacute;ticos.</li>
+        <li><strong>Antes e depois &eacute; conte&uacute;do que engaja</strong> &mdash; Transforma&ccedil;&otilde;es visuais (pintura, ilumina&ccedil;&atilde;o, m&oacute;veis planejados) geram salvar e compartilhar &mdash; os dois sinais mais valorizados pelo algoritmo em 2026.</li>
+        <li><strong>Pre&ccedil;o justo, n&atilde;o barateiro</strong> &mdash; B&amp;Q demonstra que o posicionamento correto &eacute; &ldquo;pre&ccedil;o justo com qualidade&rdquo;, n&atilde;o &ldquo;o mais barato&rdquo;. Valor percebido supera desconto.</li>
+        <li><strong>Grupo de profissionais &eacute; diferencial</strong> &mdash; Criar um grupo exclusivo de eletricistas, pintores e marceneiros (WhatsApp ou Telegram) com ofertas antecipadas, dicas t&eacute;cnicas e reconhecimento gera fidelidade real.</li>
+        <li><strong>Parcerias com influenciadores locais</strong> &mdash; Lowe&apos;s usa micro-criadores, n&atilde;o celebridades. No interior, o eletricista respeitado, o pintor conhecido e o marceneiro de confian&ccedil;a s&atilde;o os verdadeiros influenciadores.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     SECAO 7: ANALISE DE REDES SOCIAIS
+     ============================================================ -->
+<div class="container" id="redes-sociais">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-tag">Se&ccedil;&atilde;o 07</div>
+      <div class="section-title">An&aacute;lise de <em>Redes Sociais</em></div>
+      <p class="section-subtitle">Instagram, YouTube, marketplaces e an&uacute;ncios &mdash; como o mercado se comunica e onde est&atilde;o as oportunidades de conte&uacute;do.</p>
+    </div>
+
+    <!-- INSTAGRAM -->
+    <div class="subsection">
+      <div class="subsection-title">Instagram &mdash; <em>10 Formatos que Performam</em></div>
+
+      <div class="table-wrapper">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th class="text-center">#</th>
+              <th>Formato</th>
+              <th>Por que funciona</th>
+              <th>Exemplo de conte&uacute;do</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-center highlight-cell">01</td>
+              <td><strong>Antes e Depois</strong></td>
+              <td>Transforma&ccedil;&atilde;o visual gera salvar e compartilhar</td>
+              <td>Pintura de sala, troca de ilumina&ccedil;&atilde;o, marcenaria</td>
+            </tr>
+            <tr>
+              <td class="text-center highlight-cell">02</td>
+              <td><strong>Tutorial R&aacute;pido</strong></td>
+              <td>Valor imediato, posiciona como autoridade</td>
+              <td>&ldquo;Como trocar uma tomada em 2 minutos&rdquo;</td>
+            </tr>
+            <tr>
+              <td class="text-center highlight-cell">03</td>
+              <td><strong>Comparativo</strong></td>
+              <td>Ajuda na decis&atilde;o de compra</td>
+              <td>&ldquo;Fio 2,5mm vs 4mm &mdash; qual usar?&rdquo;</td>
+            </tr>
+            <tr>
+              <td class="text-center highlight-cell">04</td>
+              <td><strong>Bastidores</strong></td>
+              <td>Humaniza a marca, cria conex&atilde;o</td>
+              <td>Dia a dia da loja, recebimento de mercadoria</td>
+            </tr>
+            <tr>
+              <td class="text-center highlight-cell">05</td>
+              <td><strong>Depoimento</strong></td>
+              <td>Prova social, confian&ccedil;a real</td>
+              <td>Eletricista que compra na loja h&aacute; 10 anos</td>
+            </tr>
+            <tr>
+              <td class="text-center highlight-cell">06</td>
+              <td><strong>Enquete/Quiz</strong></td>
+              <td>Engajamento ativo, dados do p&uacute;blico</td>
+              <td>&ldquo;Qual cor voc&ecirc; escolheria para esta sala?&rdquo;</td>
+            </tr>
+            <tr>
+              <td class="text-center highlight-cell">07</td>
+              <td><strong>Produto da Semana</strong></td>
+              <td>Gera urg&ecirc;ncia e fluxo</td>
+              <td>Destaque semanal com pre&ccedil;o especial</td>
+            </tr>
+            <tr>
+              <td class="text-center highlight-cell">08</td>
+              <td><strong>Time-lapse</strong></td>
+              <td>Satisfat&oacute;rio, alto tempo de visualiza&ccedil;&atilde;o</td>
+              <td>Pintura de parede completa em 30 segundos</td>
+            </tr>
+            <tr>
+              <td class="text-center highlight-cell">09</td>
+              <td><strong>Conte&uacute;do Sazonal</strong></td>
+              <td>Relev&acirc;ncia temporal, busca ativa</td>
+              <td>&ldquo;Checklist el&eacute;trico para a temporada de chuvas&rdquo;</td>
+            </tr>
+            <tr>
+              <td class="text-center highlight-cell">10</td>
+              <td><strong>Humor</strong></td>
+              <td>Compartilhamento org&acirc;nico, viraliza&ccedil;&atilde;o</td>
+              <td>Memes do dia a dia do eletricista/pintor</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="highlight-box">
+        <p><strong>Propor&ccedil;&atilde;o ideal de conte&uacute;do:</strong> 60% educativo (tutoriais, dicas, comparativos) e 40% promocional (produtos, ofertas, novidades). <strong>Algoritmo 2026:</strong> salvamentos e compartilhamentos s&atilde;o os sinais com maior peso &mdash; conte&uacute;do &uacute;til que as pessoas guardam ou enviam para amigos supera qualquer n&uacute;mero de curtidas.</p>
+      </div>
+    </div>
+
+    <!-- YOUTUBE -->
+    <div class="subsection">
+      <div class="subsection-title">YouTube &mdash; <em>Oportunidade Inexplorada</em></div>
+
+      <div class="data-grid">
+        <div class="data-card data-card-wide">
+          <div class="data-card-value">40+ canais mapeados</div>
+          <div class="data-card-label">Canais de materiais el&eacute;tricos, tintas e marcenaria analisados no Brasil &mdash; nenhum canal local em Barreiras</div>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Canal</th>
+              <th>Inscritos</th>
+              <th>Segmento</th>
+              <th>Formato Principal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Engehall</strong></td>
+              <td class="highlight-cell">2M+</td>
+              <td>El&eacute;trica</td>
+              <td>Tutoriais t&eacute;cnicos detalhados</td>
+            </tr>
+            <tr>
+              <td><strong>Mundo da El&eacute;trica</strong></td>
+              <td class="highlight-cell">1,2M+</td>
+              <td>El&eacute;trica</td>
+              <td>Cursos e dicas pr&aacute;ticas</td>
+            </tr>
+            <tr>
+              <td><strong>JR Constru&ccedil;&atilde;o</strong></td>
+              <td class="highlight-cell">1,6M</td>
+              <td>Constru&ccedil;&atilde;o</td>
+              <td>Reforma e DIY</td>
+            </tr>
+            <tr>
+              <td><strong>Paloma Cipriano</strong></td>
+              <td class="highlight-cell">1,5M+</td>
+              <td>Pintura/Decora&ccedil;&atilde;o</td>
+              <td>Transforma&ccedil;&atilde;o visual e pintura</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <ul class="content-list">
+        <li><strong>Formatos que funcionam:</strong> tutorial passo a passo, antes/depois, lista de erros comuns, comparativo de produtos, kit/lista de materiais por projeto</li>
+        <li><strong>Oportunidade gigante:</strong> nenhum canal local em Barreiras cobre materiais el&eacute;tricos, tintas ou marcenaria &mdash; ser o primeiro d&aacute; vantagem competitiva duradoura</li>
+        <li><strong>SEO local:</strong> v&iacute;deos com &ldquo;Barreiras&rdquo;, &ldquo;Oeste da Bahia&rdquo; e &ldquo;LEM&rdquo; no t&iacute;tulo capturam busca regional sem concorr&ecirc;ncia</li>
+      </ul>
+    </div>
+
+    <!-- MARKETPLACES -->
+    <div class="subsection">
+      <div class="subsection-title">Marketplaces &mdash; <em>Produtos Mais Vendidos</em></div>
+
+      <ul class="content-list">
+        <li><strong>Adaptadores de tomada</strong> &mdash; Padr&atilde;o novo x antigo, adaptadores universais, extensores. Volume alto, ticket baixo, compra por impulso</li>
+        <li><strong>Kits de ferramentas</strong> &mdash; Kits prontos para uso dom&eacute;stico e profissional. Facilidade de escolha impulsiona vendas</li>
+        <li><strong>L&acirc;mpadas LED</strong> &mdash; L&iacute;deres de venda em ilumina&ccedil;&atilde;o. Migra&ccedil;&atilde;o de incandescente/fluorescente para LED continua forte</li>
+      </ul>
+
+      <div class="subsection-title" style="font-size:1rem; margin-top:24px;">Gaps dos <em>Marketplaces</em></div>
+
+      <div class="data-grid">
+        <div class="data-card">
+          <div class="data-card-value">Orienta&ccedil;&atilde;o</div>
+          <div class="data-card-label">Falta de orienta&ccedil;&atilde;o t&eacute;cnica &mdash; o cliente compra errado e devolve</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">Kits prontos</div>
+          <div class="data-card-label">Aus&ecirc;ncia de kits organizados por projeto (&ldquo;kit para trocar tomada&rdquo;)</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">Imediatismo</div>
+          <div class="data-card-label">Entrega n&atilde;o &eacute; imediata &mdash; loja f&iacute;sica vence na urg&ecirc;ncia</div>
+        </div>
+        <div class="data-card">
+          <div class="data-card-value">P&oacute;s-venda</div>
+          <div class="data-card-label">Sem suporte t&eacute;cnico ap&oacute;s a compra &mdash; oportunidade para a loja local</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANUNCIOS -->
+    <div class="subsection">
+      <div class="subsection-title">An&aacute;lise de <em>An&uacute;ncios</em> do Setor</div>
+
+      <div class="table-wrapper">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Marca/Campanha</th>
+              <th>Estrat&eacute;gia</th>
+              <th>Aprendizado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Coral &ldquo;Certeza Mesmo&rdquo;</strong></td>
+              <td>Garantia de resultado na pintura</td>
+              <td>Eliminar o medo do consumidor de errar na cor</td>
+            </tr>
+            <tr>
+              <td><strong>Coral &ldquo;Garantia Coral&rdquo;</strong></td>
+              <td>Garantia do fabricante como argumento</td>
+              <td>Seguran&ccedil;a na decis&atilde;o de compra</td>
+            </tr>
+            <tr>
+              <td><strong>Coral &ldquo;Fortalece o Pintor&rdquo;</strong></td>
+              <td>Valoriza&ccedil;&atilde;o do profissional</td>
+              <td>O pintor como embaixador da marca</td>
+            </tr>
+            <tr>
+              <td><strong>Suvinil &ldquo;Jogar Junto Muda Tudo&rdquo;</strong></td>
+              <td>Parceria marca + pintor</td>
+              <td>Comunidade &eacute; mais forte que publicidade</td>
+            </tr>
+            <tr>
+              <td><strong>Leroy Merlin</strong></td>
+              <td>Conte&uacute;do educativo + inspira&ccedil;&atilde;o</td>
+              <td>Ensinar gera tr&aacute;fego org&acirc;nico qualificado</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="highlight-box">
+        <p><strong>5 padr&otilde;es recorrentes nos melhores an&uacute;ncios do setor:</strong> (1) Garantia e seguran&ccedil;a na compra, (2) Pre&ccedil;o/custo-benef&iacute;cio com transpar&ecirc;ncia, (3) Transforma&ccedil;&atilde;o visual &mdash; antes e depois, (4) Expertise t&eacute;cnica como diferencial, (5) Valoriza&ccedil;&atilde;o do profissional como her&oacute;i da hist&oacute;ria.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     SECAO 8: GAPS E OPORTUNIDADES ESTRATEGICAS
+     ============================================================ -->
+<div class="container" id="gaps">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-tag">Se&ccedil;&atilde;o 08</div>
+      <div class="section-title">Gaps e Oportunidades <em>Estrat&eacute;gicas</em></div>
+      <p class="section-subtitle">Os espa&ccedil;os vazios que a concorr&ecirc;ncia deixou abertos &mdash; e como Pereira Luz e Cor pode ocup&aacute;-los de forma inteligente.</p>
+    </div>
+
+    <!-- 7 GAPS -->
+    <div class="subsection">
+      <div class="subsection-title">7 Gaps <em>Identificados</em></div>
+
+      <ol class="numbered-list">
+        <li><strong>Ningu&eacute;m domina os tr&ecirc;s segmentos juntos</strong> &mdash; Cada concorrente foca em um &uacute;nico segmento (el&eacute;trica OU tintas OU marcenaria). Nenhum une os tr&ecirc;s com profundidade e atendimento t&eacute;cnico. Quem conseguir se posicionar como &ldquo;a loja completa para o profissional&rdquo; captura clientes que hoje precisam visitar 2 ou 3 lojas diferentes.</li>
+        <li><strong>Presen&ccedil;a digital praticamente inexplorada</strong> &mdash; O l&iacute;der (JK Home Center) n&atilde;o tem site. A maioria n&atilde;o produz conte&uacute;do educativo. Nenhum concorrente tem estrat&eacute;gia de conte&uacute;do consistente. O territ&oacute;rio digital est&aacute; livre.</li>
+        <li><strong>Aus&ecirc;ncia de e-commerce e cat&aacute;logo online</strong> &mdash; Apenas a El&eacute;trica L&iacute;der tem e-commerce funcional (com 1.610 seguidores). Um cat&aacute;logo digital com pre&ccedil;os, integrado ao WhatsApp, seria in&eacute;dito na regi&atilde;o.</li>
+        <li><strong>Zero conte&uacute;do educativo t&eacute;cnico local</strong> &mdash; Nenhum concorrente produz tutoriais, v&iacute;deos de &ldquo;como fazer&rdquo; ou conte&uacute;do t&eacute;cnico. Nenhum canal de YouTube local. O profissional e o consumidor buscam, mas n&atilde;o encontram conte&uacute;do regional.</li>
+        <li><strong>Nenhum programa estruturado de fideliza&ccedil;&atilde;o</strong> &mdash; Apesar de profissionais representarem 50-70% do faturamento, nenhum concorrente tem programa formal de fideliza&ccedil;&atilde;o, clube de vantagens ou grupo exclusivo para eletricistas, pintores e marceneiros.</li>
+        <li><strong>Cobertura regional limitada</strong> &mdash; A maioria opera apenas em Barreiras ou apenas em LEM. Poucas lojas cobrem as duas cidades. Regi&otilde;es secund&aacute;rias (S&atilde;o Desid&eacute;rio, Roda Velha, Riach&atilde;o das Neves) t&ecirc;m atendimento prec&aacute;rio.</li>
+        <li><strong>Demonstra&ccedil;&atilde;o de ilumina&ccedil;&atilde;o e automa&ccedil;&atilde;o inexistente</strong> &mdash; Nenhuma loja tem espa&ccedil;o de demonstra&ccedil;&atilde;o de ilumina&ccedil;&atilde;o LED, automa&ccedil;&atilde;o residencial ou ambiente cenogr&aacute;fico. A venda acontece apenas pela embalagem.</li>
+      </ol>
+    </div>
+
+    <!-- 12 OPORTUNIDADES -->
+    <div class="subsection">
+      <div class="subsection-title">12 Oportunidades <em>Estrat&eacute;gicas</em></div>
+
+      <!-- IMEDIATAS -->
+      <div class="timeline-section">
+        <span class="timeline-label timeline-label-imediato">Imediatas &mdash; 0 a 6 meses</span>
+
+        <div class="trend-grid">
+          <div class="trend-card">
+            <div class="trend-card-tag">Energia</div>
+            <h4>Linha de Energia <em>Solar</em></h4>
+            <p>Bahia &eacute; 3&ordm; em instala&ccedil;&otilde;es solares. Incluir componentes para energia solar (inversores, cabos solares, conectores MC4, disjuntores CC) captura um mercado em explos&atilde;o que apenas a Eletroluz explora na regi&atilde;o.</p>
+          </div>
+
+          <div class="trend-card">
+            <div class="trend-card-tag">Tecnologia</div>
+            <h4>Automa&ccedil;&atilde;o Residencial <em>Acess&iacute;vel</em></h4>
+            <p>Interruptores inteligentes WiFi, sensores de presen&ccedil;a, tomadas programáveis e l&acirc;mpadas conectadas. Produtos de R$ 30 a R$ 200 que o consumidor final compra por impulso.</p>
+          </div>
+
+          <div class="trend-card">
+            <div class="trend-card-tag">Digital</div>
+            <h4>WhatsApp <em>Estruturado</em></h4>
+            <p>97% das lojas usam WhatsApp, mas poucas usam bem. Cat&aacute;logo integrado, respostas r&aacute;pidas, listas segmentadas (eletricistas, pintores, marceneiros, consumidor final) e follow-up p&oacute;s-venda.</p>
+          </div>
+
+          <div class="trend-card">
+            <div class="trend-card-tag">Fideliza&ccedil;&atilde;o</div>
+            <h4>Programa de <em>Profissionais</em></h4>
+            <p>Grupo exclusivo no WhatsApp/Telegram para eletricistas, pintores e marceneiros. Ofertas antecipadas, dicas t&eacute;cnicas, reconhecimento. Profissionais representam 50-70% do faturamento e trazem seus clientes.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CURTO PRAZO -->
+      <div class="timeline-section">
+        <span class="timeline-label timeline-label-curto">Curto Prazo &mdash; 6 a 12 meses</span>
+
+        <div class="trend-grid">
+          <div class="trend-card">
+            <div class="trend-card-tag">Servi&ccedil;o</div>
+            <h4>Consultoria <em>T&eacute;cnica</em></h4>
+            <p>Vendedores capacitados para orientar projetos el&eacute;tricos, indicar cores e combinações de tintas, e recomendar ferramentas por tipo de trabalho. 69% dos clientes pedem aux&iacute;lio &mdash; quem orienta melhor vende mais.</p>
+          </div>
+
+          <div class="trend-card">
+            <div class="trend-card-tag">Conte&uacute;do</div>
+            <h4>Presen&ccedil;a Digital <em>Profissional</em></h4>
+            <p>Instagram com conte&uacute;do educativo (60%) e promocional (40%). Canal no YouTube com tutoriais locais. Primeiro da regi&atilde;o a criar conte&uacute;do t&eacute;cnico = autoridade.</p>
+          </div>
+
+          <div class="trend-card">
+            <div class="trend-card-tag">Produto</div>
+            <h4>Se&ccedil;&atilde;o LED <em>Premium</em></h4>
+            <p>Espa&ccedil;o de demonstra&ccedil;&atilde;o de ilumina&ccedil;&atilde;o LED com ambientes cenogr&aacute;ficos. Fitas LED, spots, plaf&oacute;ns e pain&eacute;is em funcionamento. Ver o efeito da luz vende mais que ler a embalagem.</p>
+          </div>
+
+          <div class="trend-card">
+            <div class="trend-card-tag">Comportamento</div>
+            <h4>Conte&uacute;do <em>DIY</em></h4>
+            <p>73% dos propriet&aacute;rios fazem projetos por conta. S&eacute;rie de conte&uacute;do &ldquo;Fa&ccedil;a Voc&ecirc; Mesmo&rdquo; com kits prontos na loja: kit troca de tomada, kit pintura de quarto, kit prateleira.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- MEDIO PRAZO -->
+      <div class="timeline-section">
+        <span class="timeline-label timeline-label-medio">M&eacute;dio Prazo &mdash; 12 a 24 meses</span>
+
+        <div class="trend-grid">
+          <div class="trend-card">
+            <div class="trend-card-tag">Sustentabilidade</div>
+            <h4>Tintas <em>Ecol&oacute;gicas</em></h4>
+            <p>Linha dedicada de tintas de baixo VOC e base &aacute;gua. Posicionamento sustent&aacute;vel para captar consumidor consciente e antecipar regulamenta&ccedil;&otilde;es futuras.</p>
+          </div>
+
+          <div class="trend-card">
+            <div class="trend-card-tag">Produto</div>
+            <h4>Ferramentas a <em>Bateria</em></h4>
+            <p>Se&ccedil;&atilde;o dedicada para ferramentas cordless (Bosch 18V, Makita LXT, DeWalt 20V MAX). Demonstra&ccedil;&atilde;o e teste na loja. Modelo de troca/upgrade de plataforma.</p>
+          </div>
+
+          <div class="trend-card">
+            <div class="trend-card-tag">Segmento</div>
+            <h4>Marcenaria e <em>Acabamento</em></h4>
+            <p>Expandir para ferragens de m&oacute;veis, dobradi&ccedil;as, corredi&ccedil;as, puxadores, MDF e acess&oacute;rios. Capturar o marceneiro que hoje vai &agrave; Casa do Marceneiro.</p>
+          </div>
+
+          <div class="trend-card">
+            <div class="trend-card-tag">Digital</div>
+            <h4>E-commerce <em>B&aacute;sico</em></h4>
+            <p>Cat&aacute;logo online com pre&ccedil;os, integrado ao WhatsApp. &ldquo;Veja online, retire na loja&rdquo; para combinar o digital com a vantagem da entrega imediata.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     SECAO 9: SAZONALIDADE
+     ============================================================ -->
+<div class="container" id="sazonalidade">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-tag">Se&ccedil;&atilde;o 09</div>
+      <div class="section-title"><em>Sazonalidade</em> das Vendas</div>
+      <p class="section-subtitle">Calend&aacute;rio de vendas do setor alinhado com a safra do agroneg&oacute;cio no Oeste Baiano &mdash; quando o dinheiro circula, a constru&ccedil;&atilde;o acelera.</p>
+    </div>
+
+    <div class="calendar-grid">
+      <div class="calendar-item">
+        <div class="calendar-month">Janeiro</div>
+        <div class="calendar-level level-medio">M&eacute;dio</div>
+        <div class="calendar-note">In&iacute;cio de ano, reformas de ver&atilde;o</div>
+      </div>
+      <div class="calendar-item">
+        <div class="calendar-month">Fevereiro</div>
+        <div class="calendar-level level-baixo">Baixo</div>
+        <div class="calendar-note">Carnaval, menor atividade</div>
+      </div>
+      <div class="calendar-item">
+        <div class="calendar-month">Mar&ccedil;o</div>
+        <div class="calendar-level level-medio">M&eacute;dio</div>
+        <div class="calendar-note">Retomada p&oacute;s-carnaval</div>
+      </div>
+      <div class="calendar-item">
+        <div class="calendar-month">Abril</div>
+        <div class="calendar-level level-alto">Alto</div>
+        <div class="calendar-note">In&iacute;cio da colheita de soja</div>
+      </div>
+      <div class="calendar-item">
+        <div class="calendar-month">Maio</div>
+        <div class="calendar-level level-alto">Alto</div>
+        <div class="calendar-note">Pico da safra, dinheiro circulando</div>
+      </div>
+      <div class="calendar-item">
+        <div class="calendar-month">Junho</div>
+        <div class="calendar-level level-pico">Pico</div>
+        <div class="calendar-note">Colheita + S&atilde;o Jo&atilde;o + reformas</div>
+      </div>
+      <div class="calendar-item">
+        <div class="calendar-month">Julho</div>
+        <div class="calendar-level level-pico">Pico</div>
+        <div class="calendar-note">Safra de algod&atilde;o + f&eacute;rias</div>
+      </div>
+      <div class="calendar-item">
+        <div class="calendar-month">Agosto</div>
+        <div class="calendar-level level-alto">Alto</div>
+        <div class="calendar-note">Entressafra, constru&ccedil;&atilde;o ativa</div>
+      </div>
+      <div class="calendar-item">
+        <div class="calendar-month">Setembro</div>
+        <div class="calendar-level level-alto">Alto</div>
+        <div class="calendar-note">Plantio, investimentos rurais</div>
+      </div>
+      <div class="calendar-item">
+        <div class="calendar-month">Outubro</div>
+        <div class="calendar-level level-alto">Alto</div>
+        <div class="calendar-note">Preparo para fim de ano</div>
+      </div>
+      <div class="calendar-item">
+        <div class="calendar-month">Novembro</div>
+        <div class="calendar-level level-pico">Pico</div>
+        <div class="calendar-note">Black Friday + reformas p/ Natal</div>
+      </div>
+      <div class="calendar-item">
+        <div class="calendar-month">Dezembro</div>
+        <div class="calendar-level level-alto">Alto</div>
+        <div class="calendar-note">Natal, 13&ordm;, &uacute;ltimas reformas</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">Ciclo <em>Agro x Constru&ccedil;&atilde;o</em></div>
+
+      <div class="table-wrapper">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Per&iacute;odo</th>
+              <th>Evento Agro</th>
+              <th>Impacto no Com&eacute;rcio</th>
+              <th>A&ccedil;&atilde;o Recomendada</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Abr&ndash;Jul</strong></td>
+              <td>Colheita de soja e algod&atilde;o</td>
+              <td class="highlight-cell">M&aacute;ximo &mdash; dinheiro circulando na regi&atilde;o</td>
+              <td>Estoque refor&ccedil;ado, campanhas agressivas, equipe extra</td>
+            </tr>
+            <tr>
+              <td><strong>Ago&ndash;Out</strong></td>
+              <td>Entressafra / plantio</td>
+              <td>Alto &mdash; investimentos em infraestrutura rural e urbana</td>
+              <td>Foco em profissionais, projetos de m&eacute;dio porte</td>
+            </tr>
+            <tr>
+              <td><strong>Nov&ndash;Dez</strong></td>
+              <td>Preparo de safra / festas</td>
+              <td class="highlight-cell">Pico &mdash; 13&ordm;, Black Friday, reformas de fim de ano</td>
+              <td>Promo&ccedil;&otilde;es, kits presente, hor&aacute;rio estendido</td>
+            </tr>
+            <tr>
+              <td><strong>Jan&ndash;Mar</strong></td>
+              <td>Crescimento da safra</td>
+              <td>M&eacute;dio/Baixo &mdash; ver&atilde;o com chuvas, Carnaval</td>
+              <td>Conte&uacute;do educativo, fideliza&ccedil;&atilde;o, estoque de seca</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="highlight-box">
+        <p>No Oeste da Bahia, o calend&aacute;rio de vendas est&aacute; diretamente ligado &agrave; <strong>safra do agroneg&oacute;cio</strong>. Quando a colheita de soja e algod&atilde;o gera renda (abril a julho), o dinheiro circula no com&eacute;rcio local &mdash; constru&ccedil;&otilde;es iniciam, reformas acontecem e o varejo aquece. Planejar estoque, equipe e campanhas com base neste ciclo &eacute; fundamental.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================================================
+     SECAO FINAL: CONCLUSAO E PROXIMOS PASSOS
+     ============================================================ -->
+<div class="container" id="conclusao">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-tag">Conclus&atilde;o</div>
+      <div class="section-title">S&iacute;ntese Executiva e <em>Pr&oacute;ximos Passos</em></div>
+    </div>
+
+    <div class="conclusion-box">
+      <h3>O Cen&aacute;rio &eacute; <em>Favor&aacute;vel</em></h3>
+      <p>Pereira Luz e Cor opera em um mercado de <strong>R$ 238,9 bilh&otilde;es</strong> (varejo de materiais de constru&ccedil;&atilde;o), dentro de uma regi&atilde;o que vive um boom econ&ocirc;mico impulsionado pelo agroneg&oacute;cio. Barreiras (171 mil habitantes) e Lu&iacute;s Eduardo Magalh&atilde;es (118 mil habitantes, PIB de R$ 8,8 bilh&otilde;es) formam um eixo econ&ocirc;mico onde a constru&ccedil;&atilde;o civil cresceu 40% em quatro anos.</p>
+      <p>Os tr&ecirc;s segmentos de atua&ccedil;&atilde;o &mdash; materiais el&eacute;tricos (R$ 50-80 bi/ano), tintas (R$ 40 bi/ano, Nordeste crescendo 11,7%) e ferramentas (R$ 9+ bi) &mdash; est&atilde;o todos em expans&atilde;o. O mercado n&atilde;o est&aacute; encolhendo, est&aacute; crescendo.</p>
+    </div>
+
+    <div class="conclusion-box">
+      <h3>A Concorr&ecirc;ncia Deixou <em>Espa&ccedil;os Abertos</em></h3>
+      <p>Dos 20 concorrentes mapeados, <strong>nenhum domina os tr&ecirc;s segmentos simultaneamente</strong>. O l&iacute;der em audi&ecirc;ncia digital (JK Home Center, 30.600 seguidores) n&atilde;o tem site. O &uacute;nico com e-commerce (El&eacute;trica L&iacute;der) tem apenas 1.610 seguidores. Nenhum produz conte&uacute;do educativo t&eacute;cnico. Nenhum tem programa de fideliza&ccedil;&atilde;o para profissionais.</p>
+      <p>Em termos digitais, a concorr&ecirc;ncia est&aacute; pelo menos <strong>3 a 5 anos atrasada</strong>. Quem ocupar esse espa&ccedil;o primeiro construir&aacute; uma vantagem competitiva dif&iacute;cil de superar.</p>
+    </div>
+
+    <div class="conclusion-box">
+      <h3>O Profissional &eacute; a <em>Chave</em></h3>
+      <p>Eletricistas, pintores e marceneiros representam <strong>50 a 70% do faturamento</strong> de uma loja de materiais. Eles compram com frequ&ecirc;ncia, em volume, e trazem seus clientes junto. Nenhum concorrente tem programa estruturado para fideliz&aacute;-los. Este &eacute; o diferencial de maior impacto imediato.</p>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">Pr&oacute;ximos <em>Passos</em></div>
+
+      <ol class="numbered-list">
+        <li><strong>Briefing completo</strong> &mdash; Detalhar posicionamento, tom de voz, proposta de valor e mensagem central com base nos dados desta pesquisa.</li>
+        <li><strong>Identidade visual</strong> &mdash; Criar a marca Pereira Luz e Cor com paleta de cores, tipografia, logo e aplica&ccedil;&otilde;es para todos os canais.</li>
+        <li><strong>Estrat&eacute;gia de conte&uacute;do</strong> &mdash; Plano de conte&uacute;do para Instagram e YouTube com os 10 formatos que performam, calend&aacute;rio editorial alinhado &agrave; sazonalidade.</li>
+        <li><strong>Programa de fideliza&ccedil;&atilde;o</strong> &mdash; Estruturar grupo exclusivo de profissionais no WhatsApp com ofertas antecipadas, dicas t&eacute;cnicas e reconhecimento.</li>
+        <li><strong>Presen&ccedil;a digital</strong> &mdash; Instagram profissional, cat&aacute;logo digital com pre&ccedil;os, WhatsApp estruturado com respostas r&aacute;pidas e listas segmentadas.</li>
+        <li><strong>Campanhas de tr&aacute;fego</strong> &mdash; Meta Ads e Google Ads focados na regi&atilde;o de Barreiras e LEM, com criativos baseados nos padr&otilde;es que funcionam no setor.</li>
+        <li><strong>Expans&atilde;o de portf&oacute;lio</strong> &mdash; Incluir energia solar, automa&ccedil;&atilde;o residencial e ilumina&ccedil;&atilde;o LED premium como categorias estrat&eacute;gicas.</li>
+      </ol>
+    </div>
+
+    <div class="highlight-box" style="margin-top:32px;">
+      <p>Esta an&aacute;lise de mercado &eacute; o alicerce de toda a estrat&eacute;gia. Cada decis&atilde;o &mdash; desde a escolha das cores da marca at&eacute; o texto de um an&uacute;ncio &mdash; deve ser sustentada pelos dados aqui documentados. <strong>O mercado est&aacute; crescendo, a concorr&ecirc;ncia est&aacute; parada e a regi&atilde;o est&aacute; aquecida.</strong> A janela de oportunidade est&aacute; aberta.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-brand">ADS <em>Company</em> &mdash; Assessoria de Marketing e Performance</div>
+  <div class="footer-sub">An&aacute;lise de Mercado &mdash; Pereira Luz e Cor &mdash; Julho 2026</div>
+</div>
+
+</body>
+</html>
