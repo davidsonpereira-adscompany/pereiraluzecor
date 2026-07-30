@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roteiros de V&iacute;deo &mdash; Inaugura&ccedil;&atilde;o Pereira Luz e Cor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ouro:#F5B800;
+  --ouro-soft:rgba(245,184,0,.08);
+  --ouro-border:rgba(245,184,0,.2);
+  --preto:#0A0A0A;
+  --cinza-escuro:#111;
+  --cinza-card:#141414;
+  --cinza-medio:#2A2A2A;
+  --cinza-claro:#888;
+  --cinza-border:rgba(255,255,255,.06);
+  --branco:#F5F5F5;
+  --laranja:#FF5C00;
+  --verde:#22C55E;
+  --azul:#3B8BFF;
+  --vermelho:#E53E3E;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Inter',-apple-system,sans-serif;
+  --display:'Montserrat',sans-serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--preto);color:var(--branco);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* TOP BAR */
+.top-bar{background:rgba(10,10,10,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--cinza-border);padding:14px 32px;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between}
+.top-bar-left{display:flex;align-items:center;gap:14px}
+.top-bar img{height:36px;opacity:.9}
+.top-bar-name{font-family:var(--serif);font-size:.95rem;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+.top-bar-name em{font-style:italic;color:var(--laranja)}
+.top-bar-badge{font-size:.6rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ouro);background:rgba(245,184,0,.08);border:1px solid rgba(245,184,0,.15);padding:5px 14px;border-radius:20px}
+.back-link{font-size:.75rem;color:var(--cinza-claro);text-decoration:none;letter-spacing:.05em;transition:color .3s}
+.back-link:hover{color:var(--laranja)}
+.back-link svg{width:14px;height:14px;vertical-align:middle;margin-right:4px;stroke:currentColor}
+
+/* HERO */
+.hero{padding:80px 32px 60px;text-align:center;position:relative;overflow:hidden;background:linear-gradient(180deg,#0A0705 0%,var(--preto) 100%)}
+.hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(245,184,0,.05) 0%,transparent 65%);pointer-events:none}
+.hero-tag{display:inline-block;font-size:.6rem;font-weight:600;letter-spacing:.4em;text-transform:uppercase;color:var(--ouro);margin-bottom:20px}
+.hero h1{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;line-height:1.2;margin-bottom:12px}
+.hero h1 em{font-style:italic;color:var(--ouro)}
+.hero-line{width:60px;height:2px;background:var(--ouro);margin:20px auto}
+.hero p{font-size:.95rem;color:var(--cinza-claro);font-weight:300;max-width:620px;margin:0 auto;line-height:1.7}
+
+.divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(245,184,0,.15),transparent)}
+
+/* CONTAINER */
+.container{max-width:900px;margin:0 auto;padding:0 32px}
+
+/* ROTEIRO SECTION */
+.roteiro-section{padding:60px 0 48px}
+.roteiro-header{display:flex;align-items:center;gap:16px;margin-bottom:36px;flex-wrap:wrap}
+.roteiro-numero{width:52px;height:52px;background:var(--ouro-soft);border:1px solid var(--ouro-border);border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:1.2rem;font-weight:800;color:var(--ouro);flex-shrink:0}
+.roteiro-meta{flex:1}
+.roteiro-titulo{font-family:var(--serif);font-size:1.4rem;font-weight:400;color:var(--branco);line-height:1.3}
+.roteiro-titulo em{font-style:italic;color:var(--ouro)}
+.roteiro-tags{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.tag{font-size:.6rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:12px}
+.tag-publico{background:rgba(59,139,255,.1);color:var(--azul);border:1px solid rgba(59,139,255,.2)}
+.tag-profissional{background:rgba(245,184,0,.1);color:var(--ouro);border:1px solid rgba(245,184,0,.2)}
+.tag-pre{background:rgba(34,197,94,.1);color:var(--verde);border:1px solid rgba(34,197,94,.2)}
+.tag-dia{background:rgba(229,62,62,.1);color:var(--vermelho);border:1px solid rgba(229,62,62,.2)}
+.tag-formato{background:rgba(255,255,255,.05);color:var(--cinza-claro);border:1px solid rgba(255,255,255,.1)}
+
+/* TABELA DO ROTEIRO */
+.roteiro-table{width:100%;border-collapse:collapse;margin-bottom:24px}
+.roteiro-table thead th{font-family:var(--display);font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ouro);text-align:left;padding:12px 16px;border-bottom:1px solid var(--ouro-border);background:var(--ouro-soft)}
+.roteiro-table thead th:first-child{width:70px;border-radius:8px 0 0 0}
+.roteiro-table thead th:nth-child(2){width:38%}
+.roteiro-table thead th:last-child{border-radius:0 8px 0 0}
+.roteiro-table tbody td{font-size:.85rem;padding:14px 16px;border-bottom:1px solid var(--cinza-border);vertical-align:top;line-height:1.6}
+.roteiro-table tbody tr:last-child td{border-bottom:none}
+.roteiro-table tbody tr{transition:background .2s}
+.roteiro-table tbody tr:hover{background:rgba(245,184,0,.03)}
+.td-tempo{font-family:var(--display);font-size:.75rem;font-weight:700;color:var(--ouro);white-space:nowrap}
+.td-visual{font-size:.82rem;color:var(--cinza-claro);font-weight:300}
+.td-locucao{font-size:.88rem;color:var(--branco);font-weight:500}
+.td-locucao strong{color:var(--ouro);font-weight:700}
+
+/* ENCERRAMENTO */
+.encerramento{background:var(--cinza-card);border:1px solid var(--cinza-border);border-radius:8px;padding:20px 24px;margin-top:8px}
+.encerramento-label{font-family:var(--display);font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ouro);margin-bottom:10px}
+.encerramento-info{font-size:.85rem;color:rgba(255,255,255,.7);line-height:1.7}
+.encerramento-info strong{color:var(--branco);font-weight:600}
+
+/* FOOTER */
+.footer{text-align:center;padding:48px 32px 32px;border-top:1px solid var(--cinza-border);margin-top:48px}
+.footer-brand{font-family:var(--serif);font-size:1rem;color:rgba(255,255,255,.6);margin-bottom:8px}
+.footer-brand em{font-style:italic;color:var(--laranja)}
+.footer-sub{font-size:.72rem;color:rgba(255,255,255,.3);font-weight:300}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .top-bar{padding:12px 20px}
+  .hero{padding:60px 24px 48px}
+  .container{padding:0 20px}
+  .roteiro-section{padding:48px 0 36px}
+  .roteiro-table{display:block;overflow-x:auto}
+}
+@media(max-width:600px){
+  .top-bar{padding:10px 16px}
+  .top-bar-name{display:none}
+  .hero{padding:48px 16px 36px}
+  .container{padding:0 16px}
+  .roteiro-header{gap:12px}
+  .roteiro-numero{width:42px;height:42px;font-size:1rem}
+  .roteiro-titulo{font-size:1.15rem}
+  .roteiro-table thead th{font-size:.55rem;padding:10px 12px}
+  .roteiro-table tbody td{font-size:.8rem;padding:12px}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-bar-left">
+    <img src="../ads-logo.png" alt="ADS Company">
+    <span class="top-bar-name">ADS <em>Company</em></span>
+  </div>
+  <a href="../index.html" class="back-link"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>Central</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Inaugura&ccedil;&atilde;o &bull; S&aacute;bado 01/08</div>
+  <h1>Roteiros de <em>V&iacute;deo</em></h1>
+  <div class="hero-line"></div>
+  <p>Quatro roteiros para v&iacute;deo curto (Reels/Stories) da inaugura&ccedil;&atilde;o da Pereira Luz e Cor. Dois para o p&uacute;blico geral e dois para profissionais &mdash; vers&otilde;es pr&eacute;-evento e dia D.</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="container">
+
+<!-- ============================== -->
+<!-- ROTEIRO 1 -->
+<!-- ============================== -->
+<div class="roteiro-section">
+  <div class="roteiro-header">
+    <div class="roteiro-numero">01</div>
+    <div class="roteiro-meta">
+      <div class="roteiro-titulo">P&uacute;blico Geral &mdash; <em>&Eacute; Neste S&aacute;bado</em></div>
+      <div class="roteiro-tags">
+        <span class="tag tag-publico">P&uacute;blico Geral</span>
+        <span class="tag tag-pre">Pr&eacute;-evento</span>
+        <span class="tag tag-formato">~20 segundos</span>
+      </div>
+    </div>
+  </div>
+
+  <table class="roteiro-table">
+    <thead><tr><th>Tempo</th><th>Visual</th><th>Locu&ccedil;&atilde;o / Texto em Tela</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="td-tempo">0 &ndash; 3s</td>
+        <td class="td-visual">Fachada da loja com letreiro (take r&aacute;pido, c&acirc;mera de baixo pra cima)</td>
+        <td class="td-locucao"><strong>&ldquo;&Eacute; neste s&aacute;bado, dia 01 de agosto!&rdquo;</strong></td>
+      </tr>
+      <tr>
+        <td class="td-tempo">3 &ndash; 7s</td>
+        <td class="td-visual">Cortes r&aacute;pidos: prateleiras com produtos, tintas, l&acirc;mpadas acesas, ferragens expostas</td>
+        <td class="td-locucao"><strong>&ldquo;Grande inaugura&ccedil;&atilde;o da Pereira Luz e Cor em Barreiras.&rdquo;</strong></td>
+      </tr>
+      <tr>
+        <td class="td-tempo">7 &ndash; 12s</td>
+        <td class="td-visual">Close nos produtos de destaque (pain&eacute;is LED, l&acirc;mpadas, fitas decorativas)</td>
+        <td class="td-locucao"><strong>&ldquo;Materiais el&eacute;tricos, tintas e ferragens de marcenaria com descontos imperd&iacute;veis de inaugura&ccedil;&atilde;o.&rdquo;</strong></td>
+      </tr>
+      <tr>
+        <td class="td-tempo">12 &ndash; 16s</td>
+        <td class="td-visual">Imagem do espa&ccedil;o pronto, caf&eacute; sendo servido ou mesa de coffee break</td>
+        <td class="td-locucao"><strong>&ldquo;Coffee break, ofertas especiais e tudo pra voc&ecirc; conhecer de perto.&rdquo;</strong></td>
+      </tr>
+      <tr>
+        <td class="td-tempo">16 &ndash; 20s</td>
+        <td class="td-visual">Fachada novamente + endere&ccedil;o e telefone em tela</td>
+        <td class="td-locucao"><strong>&ldquo;Pereira Luz e Cor. S&aacute;bado, 01/08. A gente espera voc&ecirc;.&rdquo;</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="encerramento">
+    <div class="encerramento-label">Texto em tela (encerramento)</div>
+    <div class="encerramento-info">
+      <strong>Rua Marechal Deodoro, 242 &mdash; Centro, Barreiras &mdash; BA</strong><br>
+      <strong>(77) 99192-0081</strong>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================== -->
+<!-- ROTEIRO 2 -->
+<!-- ============================== -->
+<div class="roteiro-section">
+  <div class="roteiro-header">
+    <div class="roteiro-numero">02</div>
+    <div class="roteiro-meta">
+      <div class="roteiro-titulo">Profissionais &mdash; <em>&Eacute; Neste S&aacute;bado</em></div>
+      <div class="roteiro-tags">
+        <span class="tag tag-profissional">Profissionais</span>
+        <span class="tag tag-pre">Pr&eacute;-evento</span>
+        <span class="tag tag-formato">~22 segundos</span>
+      </div>
+    </div>
+  </div>
+
+  <table class="roteiro-table">
+    <thead><tr><th>Tempo</th><th>Visual</th><th>Locu&ccedil;&atilde;o / Texto em Tela</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="td-tempo">0 &ndash; 3s</td>
+        <td class="td-visual">Fachada da loja, &acirc;ngulo aberto</td>
+        <td class="td-locucao"><strong>&ldquo;Eletricista, pintor, marceneiro &mdash; esse recado &eacute; pra voc&ecirc;.&rdquo;</strong></td>
+      </tr>
+      <tr>
+        <td class="td-tempo">3 &ndash; 8s</td>
+        <td class="td-visual">Cortes: cabos, disjuntores, pain&eacute;is LED, gal&otilde;es de tinta, dobradi&ccedil;as, puxadores</td>
+        <td class="td-locucao"><strong>&ldquo;Neste s&aacute;bado, dia 01 de agosto, a Pereira Luz e Cor inaugura em Barreiras com tudo o que voc&ecirc; precisa na sua obra.&rdquo;</strong></td>
+      </tr>
+      <tr>
+        <td class="td-tempo">8 &ndash; 13s</td>
+        <td class="td-visual">Close nos produtos profissionais: l&acirc;mpadas de alta pot&ecirc;ncia, fitas LED, ferragens de marcenaria</td>
+        <td class="td-locucao"><strong>&ldquo;Materiais el&eacute;tricos, tintas e ferragens de marcenaria. Linha completa, qualidade de verdade e pre&ccedil;o que cabe no seu or&ccedil;amento.&rdquo;</strong></td>
+      </tr>
+      <tr>
+        <td class="td-tempo">13 &ndash; 17s</td>
+        <td class="td-visual">Prateleiras organizadas, variedade de produtos</td>
+        <td class="td-locucao"><strong>&ldquo;Descontos especiais de inaugura&ccedil;&atilde;o pra quem trabalha com isso todo dia.&rdquo;</strong></td>
+      </tr>
+      <tr>
+        <td class="td-tempo">17 &ndash; 22s</td>
+        <td class="td-visual">Fachada + endere&ccedil;o e telefone em tela</td>
+        <td class="td-locucao"><strong>&ldquo;Pereira Luz e Cor. S&aacute;bado, 01/08. Vem conhecer seu novo fornecedor.&rdquo;</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="encerramento">
+    <div class="encerramento-label">Texto em tela (encerramento)</div>
+    <div class="encerramento-info">
+      <strong>Rua Marechal Deodoro, 242 &mdash; Centro, Barreiras &mdash; BA</strong><br>
+      <strong>(77) 99192-0081</strong>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================== -->
+<!-- ROTEIRO 3 -->
+<!-- ============================== -->
+<div class="roteiro-section">
+  <div class="roteiro-header">
+    <div class="roteiro-numero">03</div>
+    <div class="roteiro-meta">
+      <div class="roteiro-titulo">P&uacute;blico Geral &mdash; <em>&Eacute; Hoje</em></div>
+      <div class="roteiro-tags">
+        <span class="tag tag-publico">P&uacute;blico Geral</span>
+        <span class="tag tag-dia">Dia D</span>
+        <span class="tag tag-formato">~18 segundos</span>
+      </div>
+    </div>
+  </div>
+
+  <table class="roteiro-table">
+    <thead><tr><th>Tempo</th><th>Visual</th><th>Locu&ccedil;&atilde;o / Texto em Tela</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="td-tempo">0 &ndash; 3s</td>
+        <td class="td-visual">Fachada com bal&otilde;es, faixa de inaugura&ccedil;&atilde;o, movimento de pessoas</td>
+        <td class="td-locucao"><strong>&ldquo;&Eacute; hoje! Grande inaugura&ccedil;&atilde;o da Pereira Luz e Cor!&rdquo;</strong></td>
+      </tr>
+      <tr>
+        <td class="td-tempo">3 &ndash; 7s</td>
+        <td class="td-visual">Cortes r&aacute;pidos do interior: produtos nas prateleiras, ilumina&ccedil;&atilde;o acesa, ambiente bonito</td>
+        <td class="td-locucao"><strong>&ldquo;Materiais el&eacute;tricos, tintas e ferragens de marcenaria com descontos que s&oacute; a inaugura&ccedil;&atilde;o traz.&rdquo;</strong></td>
+      </tr>
+      <tr>
+        <td class="td-tempo">7 &ndash; 12s</td>
+        <td class="td-visual">Mesa de coffee break, pessoas circulando, clima de evento</td>
+        <td class="td-locucao"><strong>&ldquo;Coffee break liberado e ofertas imperd&iacute;veis esperando por voc&ecirc;.&rdquo;</strong></td>
+      </tr>
+      <tr>
+        <td class="td-tempo">12 &ndash; 18s</td>
+        <td class="td-visual">Fachada aberta, portas abertas, convidando</td>
+        <td class="td-locucao"><strong>&ldquo;Pereira Luz e Cor. De portas abertas agora no Centro de Barreiras. Vem!&rdquo;</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="encerramento">
+    <div class="encerramento-label">Texto em tela (encerramento)</div>
+    <div class="encerramento-info">
+      <strong>Rua Marechal Deodoro, 242 &mdash; Centro, Barreiras &mdash; BA</strong><br>
+      <strong>(77) 99192-0081</strong>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ============================== -->
+<!-- ROTEIRO 4 -->
+<!-- ============================== -->
+<div class="roteiro-section">
+  <div class="roteiro-header">
+    <div class="roteiro-numero">04</div>
+    <div class="roteiro-meta">
+      <div class="roteiro-titulo">Profissionais &mdash; <em>&Eacute; Hoje</em></div>
+      <div class="roteiro-tags">
+        <span class="tag tag-profissional">Profissionais</span>
+        <span class="tag tag-dia">Dia D</span>
+        <span class="tag tag-formato">~20 segundos</span>
+      </div>
+    </div>
+  </div>
+
+  <table class="roteiro-table">
+    <thead><tr><th>Tempo</th><th>Visual</th><th>Locu&ccedil;&atilde;o / Texto em Tela</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="td-tempo">0 &ndash; 3s</td>
+        <td class="td-visual">Fachada movimentada, clima de evento</td>
+        <td class="td-locucao"><strong>&ldquo;Eletricista, pintor, marceneiro &mdash; &eacute; hoje!&rdquo;</strong></td>
+      </tr>
+      <tr>
+        <td class="td-tempo">3 &ndash; 8s</td>
+        <td class="td-visual">Cortes: profissional olhando produtos, pegando l&acirc;mpada na prateleira, conferindo ferragens</td>
+        <td class="td-locucao"><strong>&ldquo;A Pereira Luz e Cor abriu as portas em Barreiras com tudo o que a sua obra precisa.&rdquo;</strong></td>
+      </tr>
+      <tr>
+        <td class="td-tempo">8 &ndash; 13s</td>
+        <td class="td-visual">Close nos produtos: pain&eacute;is, spots, l&acirc;mpadas alta pot&ecirc;ncia, ferragens, tintas</td>
+        <td class="td-locucao"><strong>&ldquo;Linha completa de materiais el&eacute;tricos, tintas e ferragens de marcenaria. Desconto especial de inaugura&ccedil;&atilde;o pra profissional.&rdquo;</strong></td>
+      </tr>
+      <tr>
+        <td class="td-tempo">13 &ndash; 17s</td>
+        <td class="td-visual">Pessoas no coffee break, aperto de m&atilde;o, clima de parceria</td>
+        <td class="td-locucao"><strong>&ldquo;Vem tomar um caf&eacute; e conhecer de perto o que vai facilitar o seu dia a dia.&rdquo;</strong></td>
+      </tr>
+      <tr>
+        <td class="td-tempo">17 &ndash; 20s</td>
+        <td class="td-visual">Fachada + endere&ccedil;o e telefone</td>
+        <td class="td-locucao"><strong>&ldquo;Pereira Luz e Cor. Estamos abertos agora. Te esperamos.&rdquo;</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="encerramento">
+    <div class="encerramento-label">Texto em tela (encerramento)</div>
+    <div class="encerramento-info">
+      <strong>Rua Marechal Deodoro, 242 &mdash; Centro, Barreiras &mdash; BA</strong><br>
+      <strong>(77) 99192-0081</strong>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-brand">ADS <em>Company</em> &mdash; Assessoria de Marketing e Performance</div>
+  <div class="footer-sub">Roteiros de Inaugura&ccedil;&atilde;o &mdash; Pereira Luz e Cor &mdash; Julho 2026</div>
+</div>
+
+</body>
+</html>
